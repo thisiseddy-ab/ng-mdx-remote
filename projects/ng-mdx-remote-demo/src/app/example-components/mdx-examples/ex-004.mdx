@@ -1,0 +1,139 @@
+# Integrating Angular and React Components with Markdown
+
+Integrating Angular and React components into Markdown (MDX) content allows for creating rich, interactive documents. This guide explains how to use Angular and React components within Markdown and provides examples to set it up.
+
+## How to Use Angular and React Components in Markdown
+
+### Using React Components in MDX
+
+MDX allows you to embed React components directly into your Markdown content. This functionality enables dynamic and interactive elements within your Markdown documents.
+
+#### How to Use React Components
+
+1. **Embed the Component:**
+   - Import your React component and use it directly in your Markdown content, similar to how you would in a regular React file.
+   - You can pass props to customize the component’s behavior and appearance.
+
+2. **Render Dynamic Content:**
+   - React components are used to render dynamic content such as interactive elements, forms, or custom UI components directly within your Markdown.
+
+## How to Use Angular Components in Markdown
+
+### 1. **Automatic Conversion to Custom Elements**
+
+Angular components are automatically converted into custom web components. This conversion is managed by the `NgMdxRemoteComponent` service, which utilizes Angular’s `createCustomElement` function. This function enables Angular components to be used as HTML elements in a manner compatible with standard web technologies.
+
+**How It Works:**
+- The `NgMdxRemoteComponent` service takes your Angular components and converts them into custom elements. This involves:
+  - **Creating Custom Elements:** Using `createCustomElement`, the Angular component is wrapped and exposed as a standard web component (custom element).
+  - **Registering Custom Elements:** The custom elements are registered with the browser, allowing them to be used in any HTML or Markdown content.
+
+### 2. **Automatic Registration of Custom Elements**
+
+Once the Angular components are converted into custom elements, they are automatically registered with the browser’s custom elements registry. This registration process ensures that the components can be used seamlessly within your Markdown files.
+
+**How It Works:**
+- The `NgMdxRemoteComponent` service takes care of:
+  - **Defining Custom Elements:** The service registers the custom elements with the tag names specified, making them available for use in your Markdown content.
+  - **Handling Lifecycle:** The custom elements are managed in a way that ensures they are properly initialized and rendered when used in Markdown or HTML content.
+
+### Summary
+
+In summary, the process of using Angular components in Markdown is streamlined and automated by the `NgMdxRemoteComponent` service. You do not need to manually convert or register Angular components; the service handles these tasks for you, allowing you to integrate dynamic Angular components directly into your Markdown content with minimal effort.
+
+### 1. **Greeting Component**
+
+The `Greeting` component offers a personalized greeting to the reader. This component is ideal for adding a personal touch to your content by addressing users directly.
+
+#### **Angular Greeting Component**
+
+<ng-greeting name="Edin Abdiu"/>
+
+
+#### **React Greeting Component**
+
+<Greeting name="Edin Abdiu"/>
+
+
+### 2. **Button Component**
+
+The `Button` component creates a customizable button that can perform actions when clicked. This is perfect for adding interactive elements to your content, such as triggering events or handling user interactions.
+
+#### **Angular Button Component**
+
+<ng-button/>
+
+#### **React Button Component**
+
+<Button onClick={() => alert('Button clicked!')} />
+
+### 3. **Info Card Component**
+
+The `InfoCard` component displays information in a visually appealing card format. It can include an optional image, a title, and a description, making it ideal for highlighting key points or showcasing important content.
+
+#### **Angular Info Card Component**
+
+<ng-info-card 
+  title="Learn MDX" 
+  content="MDX allows you to combine Markdown with React components, providing a powerful way to create interactive documents." 
+  imageurl="https://pbs.twimg.com/profile_images/1172176255761825793/eeqDiY-x_400x400.jpg"
+/>
+
+#### **React Info Card Component**
+
+<InfoCard 
+  title="Learn MDX" 
+  content="MDX allows you to combine Markdown with React components, providing a powerful way to create interactive documents." 
+  imageUrl="https://pbs.twimg.com/profile_images/1172176255761825793/eeqDiY-x_400x400.jpg"
+/>
+
+### 4. **Alert Box Component**
+
+The `AlertBox` component is used to display different types of alert messages, including informational, warning, and error messages. This component is useful for providing feedback or notifications within your content.
+
+#### **Angular Alert Box Component**
+
+**Info Exaple**
+
+<ng-alert-box 
+  message="This is an info alert box." 
+  type="info"
+/>
+
+**Warning Example**
+
+<ng-alert-box
+  message="This is a warning alert box." 
+  type="warning"
+/>
+
+**Error Example**
+
+<ng-alert-box 
+  message="This is an error alert box." 
+  type="error"
+/>
+
+#### **React Alert Box Component**
+
+**Info Exaple**
+
+<AlertBox 
+  message="This is an info alert box." 
+  type="info"
+/>
+
+**Warning Example**
+
+<AlertBox 
+  message="This is a warning alert box." 
+  type="warning"
+/>
+
+**Error Example**
+
+<AlertBox 
+  message="This is an error alert box." 
+  type="error"
+/>
+

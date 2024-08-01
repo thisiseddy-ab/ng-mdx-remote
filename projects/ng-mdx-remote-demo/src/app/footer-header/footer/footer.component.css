@@ -1,0 +1,26 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    z-index: 100;
+    top:0;
+    padding: .5% 2% .5% 2%;
+    gap : 2vw;
+    background-color: var(--header-color)
+}
+
+h1{
+    color: var(--orange-color);
+    border-radius: 2rem;
+    padding: max(.5rem,.3rem);
+    border: solid var(--orange-color);
+    border-width: .2rem;
+    white-space: nowrap;
+    width: auto;
+    font-size: clamp(1.5rem, 0.92593vw + 1.16667rem, 2rem);
+    font-weight: 500;
+}
+

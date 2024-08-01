@@ -1,0 +1,7 @@
+<div class="home-wrapper" >
+    @for (ex of exampleList; track ex.Id) {
+        <ex-card [title]="ex.Title"[description]="ex.Description" [href]="['/example', ex.Id]"></ex-card>
+    } @empty {
+        <P>There is No Example</P>
+    }
+</div>

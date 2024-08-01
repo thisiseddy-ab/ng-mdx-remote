@@ -1,0 +1,160 @@
+## Use remark and rehype Plugins
+
+To enhance your MDX content, you can utilize various remark and rehype plugins. These plugins provide a wide range of functionalities, from processing Markdown syntax to transforming HTML output. In this example, we'll demonstrate how to use the **rehype-prism-plus** plugin for syntax highlighting.
+
+Remark plugins are useful for processing and transforming Markdown content before it gets converted into HTML. They can handle tasks such as parsing frontmatter, converting links to images, or transforming text based on specific rules. Remark plugins operate during the initial stages of the content processing pipeline, making them essential for content preparation.
+
+Rehype plugins, on the other hand, are used to manipulate the HTML output generated from the Markdown content. They can perform tasks like adding custom attributes to elements, sanitizing HTML, or enhancing the output with additional features. The **rehype-prism-plus** plugin is a great example of a rehype plugin that adds syntax highlighting to code blocks in your content.
+
+By combining remark and rehype plugins, you can create a powerful content processing pipeline that enhances your MDX content in numerous ways. This allows for greater customization and control over the final output, ensuring that your content looks and behaves exactly as you want it to.
+
+In summary, using remark and rehype plugins together provides a comprehensive solution for enhancing MDX content, offering both pre-processing and post-processing capabilities. The **rehype-prism-plus** plugin, in particular, demonstrates the power of rehype plugins by adding visually appealing syntax highlighting to code blocks, making your technical content more readable and engaging.
+
+
+
+### Installation
+
+First, you need to install the required packages:
+
+```bash
+npm install prismjs rehype-prism-plus
+```
+
+```typescript
+import { Component,} from '@angular/core';
+
+import {NgMdxRemoteModule,SerializeOptions} from 'ng-mdx-remote'
+
+import rehypePrism from 'rehype-prism-plus';
+
+@Component({
+  selector: 'ex-005',
+  standalone: true,
+  imports: [NgMdxRemoteModule],
+  templateUrl: './ex-005.component.html',
+  styleUrl: './ex-005.component.css',
+})
+export class EX_005_Component {
+  
+  mdxOptions: SerializeOptions = {
+    scope: {},
+    mdxOptions: {
+      remarkPlugins: [
+      ], 
+      rehypePlugins: [
+        rehypePrism
+      ],
+      format: 'mdx',
+      development: false
+    },
+    parseFrontmatter: true,
+  };
+
+  reactComponents = {
+  }
+
+  ngComponents = {
+  }
+}
+```
+
+To activate [Prism.js](http://prismjs.com/) syntax highlight you will need to include...
+- prism.js core library - `node_modules/prismjs/prism.js` file
+- a highlight css theme - from `node_modules/prismjs/themes` directory
+- desired code language syntax files - from `node_modules/prismjs/components` directory
+
+_Additional themes can be found by browsing the web such as [Prism-Themes](https://github.com/PrismJS/prism-themes) or [Mokokai](https://github.com/Ahrengot/Monokai-theme-for-Prism.js) for example._
+
+If you are using [Angular CLI](https://cli.angular.io/) you can follow the `angular.json` example below...
+
+```diff
+"styles": [
+  "styles.css",
++ "node_modules/prismjs/themes/prism-okaidia.css"
+],
+"scripts": [
++ "node_modules/prismjs/prism.js",
++ "node_modules/prismjs/components/prism-css.min.js" # css language syntax
+]
+```
+
+## Code Examples
+
+### JavaScript Example
+
+```javascript
+
+// A simple JavaScript function to greet a user
+const greet = (name) => {
+  return `Hello, ${name}!`;
+};
+
+// Use the function to greet the user
+const greeting = greet("World");
+console.log(greeting);
+
+// Create an array and filter even numbers
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const evenNumbers = numbers.filter((num) => num % 2 === 0);
+console.log("Even Numbers:", evenNumbers);
+
+```
+
+### Python Example
+
+```py
+
+# A simple Python function to greet a user
+def greet(name):
+    return f"Hello, {name}!"
+
+# Use the function to greet the user
+greeting = greet("World")
+print(greeting)
+
+# Create a list and filter even numbers using list comprehension
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = [num for num in numbers if num % 2 == 0]
+print("Even Numbers:", even_numbers)
+
+```
+
+### CSS Example
+
+```css
+/* Basic CSS styling for a webpage */
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+
+p {
+  color: #666;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+```

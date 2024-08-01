@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --header-color: #2A2A28;
+    --orange-color: #F24405;
+    --dark-color: #040D12;
+    --gap : 2%;
+}
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    color: inherit;
+}
+
+html, body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-color);
+    overflow-x: hidden;
+    height: 100%;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+
+.thm-orange{
+    background-color: var(--orange-color);
+    color: var(--dark-color)
+}
+  
+.thm-dark{
+    background-color: var(--dark-color);
+    color: var(--orange-color)
+}
+
+.thm-gray{
+    background-color: #c13604;
+    color: var(--dark-colorr)
+}
