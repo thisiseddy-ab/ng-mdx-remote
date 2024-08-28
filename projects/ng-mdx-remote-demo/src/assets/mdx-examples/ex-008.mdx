@@ -1,0 +1,111 @@
+# Using the Built-In Clipboard Plugin for Code Blocks
+
+The built-in Clipboard plugin offers a streamlined way to enhance your documentation or web applications by adding copy-to-clipboard functionality to your code blocks. This feature allows users to easily copy code snippets with a single click, improving usability and accessibility. Whether you are working with markdown components or directives, integrating the Clipboard plugin is straightforward and provides a seamless user experience.
+
+### Overview
+
+The Clipboard plugin integrates directly into your markdown components, allowing you to add copy functionality to your code blocks effortlessly. This means that users can copy code snippets to their clipboard without manually selecting the text, which is particularly useful for technical documentation, tutorials, or any content where users may need to copy code for reuse.
+
+```html
+
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  clipboard
+  ></ng-mdx-remote-render>
+
+```
+
+#### Default button
+
+The clipboard plugin provide an unstyled default button with a default behavior out of the box if no alternative is used.
+
+#### Customize button toolbar
+The clipboard button is placed inside a wrapper element that can be customize using the .ng-mdx-remote-clipboard-toolbar CSS selector in your global styles.css/scss file.
+
+This allows to override the default positionning of the clipboard button and play with the visibility of the button using the .hover CSS selector that is applied on the toolbar when the mouse cursor enters and leaves the code block element.
+
+#### Customize default button
+
+To customize the default button styling, use the .ng-mdx-remote-clipboard-button CSS selector in your global styles.css/scss file. You can also customized the "copied" state happening after the button is clicked using the .copied CSS selector.
+
+#### Use Custom Button Coponent/Template
+
+```typescript
+
+import {Input_SerializeOptions, ClipboardRenderOptions} from 'ng-mdx-remote';
+import {Custom_Clipboard_Component} from './custom/clipboard.component';
+
+clipboardrOptions : ClipboardRenderOptions = {
+  buttonTemplate: Custom_Clipboard_Component
+}
+
+mdxOptions: SerializeOptions = {
+    scope: {},
+    mdxOptions: {
+      remarkPlugins: [
+      ], 
+      rehypePlugins: [
+      ],
+      format: 'mdx',
+      development: false
+    },
+    parseFrontmatter: true,
+  };
+
+```
+
+```html
+
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  clipboard
+  [clipboard_options] = "clipboardrOptions"
+  ></ng-mdx-remote-render>
+
+```
+You can Style the Toolbar and Button as You wish in Global "style.css"
+
+```css
+
+.ng-mdx-remote-clipboard-toolbar {
+  top: 16px;
+  right: 16px;
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+}
+
+
+.ng-mdx-remote-clipboard-toolbar.hover {
+  opacity: 1;
+}
+
+.ng-mdx-remote-clipboard-button {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 4px 0;
+  width: 50px;
+  transition: background-color 500ms ease-in-out, color 250ms ease-out, transform 100ms ease-out;
+}
+
+.ng-mdx-remote-clipboard-button.copied {
+  background-color: rgba(0, 255, 0, 0.1); 
+  color: #00ff00; 
+}
+
+.ng-mdx-remote-clipboard-button:hover {
+  background-color: rgba(255, 255, 255, 0.14); 
+}
+
+.ng-mdx-remote-clipboard-button:active {
+  transform: scale(0.95); 
+}
+
+```

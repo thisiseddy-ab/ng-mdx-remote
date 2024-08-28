@@ -1,0 +1,111 @@
+# Usin Rehype Twemoji Plugin
+
+The rehype-twemoji plugin is a powerful tool within the Rehype ecosystem that enhances HTML content by transforming standard Unicode emojis into Twitter-style emoji images (SVG or PNG). This plugin allows you to maintain a consistent, high-quality emoji appearance across all platforms, making your content visually appealing and easily recognizable.
+
+## Key Features
+
+    * Twitter-Style Emojis: Converts standard Unicode emojis into Twitter’s Twemoji images, available in both SVG and PNG formats.
+
+    * Consistent Rendering: Ensures that emojis are displayed consistently across all platforms and devices, regardless of native emoji support or rendering differences.
+
+    * Customization Options: Allows for customization of the emoji format (SVG or PNG) and provides options for setting the size and styling of the emojis.
+
+```bash
+# https://www.npmjs.com/package/rehype-twemoji
+npm install rehype-twemoji
+```
+
+The "pluginName" needs to be exactly "rehype-twemoji"
+
+```typescript
+
+import {Input_SerializeOptions, RehypeTwemojiOptions} from 'ng-mdx-remote';
+import { rehypeTwemoji } from 'rehype-twemoji'
+
+mdxOptions: SerializeOptions = {
+    scope: {},
+    mdxOptions: {
+      remarkPlugins: [
+      ], 
+      rehypePlugins: [
+        {pluginName: 'rehypeTwemoji', pluginFunc: rehypeTwemoji, pluginOptions: {format: 'svg', source: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@latest'} satisfies RehypeTwemojiOptions},
+      ],
+      format: 'mdx',
+      development: false
+    },
+    parseFrontmatter: true,
+  };
+
+```
+
+You need to activate the plugin in the component, and you can update the options. Each component can have different options.
+
+```html
+
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  twemoji
+  [twemoji_options]="{format: 'png'}"
+  ></ng-mdx-remote-render>
+
+```
+
+To avoid oversized SVG emojis, be sure to set the width and height in your global style.css file. Without these settings, the SVG emojis might appear much larger than intended.
+
+```css
+
+ng-mdx-remote-render * img[data-twemoji] {
+  width: 20px;  /* Set the desired width */
+  height: 20px; /* Set the desired height */
+}
+
+```
+
+## Here an Exaple using Twemoji
+
+If you have both the remark-gemoji and rehype-twemoji plugins active, your workflow will involve a two-step emoji transformation process:
+
+    1. Emoji Conversion with remark-gemoji: First, the remark-gemoji plugin scans your Markdown content and converts any GitHub-style emoji shortcodes (like :smile: or :rocket:) into their corresponding Unicode emoji characters. This step ensures that all recognized shortcodes are turned into standard emojis.
+
+    2. Emoji Transformation with rehype-twemoji: Next, the rehype-twemoji plugin takes these Unicode emojis and converts them into Twitter-style SVG or PNG images. This conversion gives your emojis a consistent, visually appealing appearance that matches Twitter's distinct emoji style across all platforms.
+
+By combining remark-gemoji and rehype-twemoji, you can seamlessly integrate emojis into your content, ensuring they are both correctly converted and beautifully rendered with Twitter's iconic emoji design. This process enhances the visual consistency and appeal of your content across different devices and browsers.
+
+```markdown
+
+Emojis in this text will be replaced: :dog::+1:
+
+I’m so excited for the weekend! :tada::raised_hands:
+
+Just finished a great workout! :muscle::sweat_smile:
+
+It’s a beautiful day outside! :sunny::deciduous_tree:
+
+Happy birthday to my best friend! :birthday::balloon:
+
+Can’t wait to see you tonight! :wave::smiley:
+
+Look, the moon :new_moon_with_face:
+
+Here’s a family :family_man_man_boy_boy:
+
+
+```
+
+Emojis in this text will be replaced: :dog::+1:
+
+I’m so excited for the weekend! :tada::raised_hands:
+
+Just finished a great workout! :muscle::sweat_smile:
+
+It’s a beautiful day outside! :sunny::deciduous_tree:
+
+Happy birthday to my best friend! :birthday::balloon:
+
+Can’t wait to see you tonight! :wave::smiley:
+
+Look, the moon :new_moon_with_face:
+
+Here’s a family :family_man_man_boy_boy:

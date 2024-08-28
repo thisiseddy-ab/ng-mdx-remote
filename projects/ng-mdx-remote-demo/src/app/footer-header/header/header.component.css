@@ -1,0 +1,87 @@
+:host{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    z-index: 100;
+    top:0;
+    padding: .5% 2% .5% 2%;
+    gap : 2vw;
+    background : var(--gradient_01)
+}
+
+
+.app-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--pink-color);
+    border: 3.5px solid var(--pink-color);
+    border-radius: 25%;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-left: 70px; 
+    margin-right: auto; 
+}
+
+.nav a {
+    background-color: transparent;
+    border: 2px solid var(--white-color);
+    color: var(--white-color);
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.github-icon-wrapper {
+    display: flex;
+    justify-content: center; /* Center the SVG horizontally */
+    align-items: center; /* Center the SVG vertically */
+    max-width: 65px;
+    max-height: 65px;
+  }
+  
+
+  .github-icon-wrapper:hover {
+    opacity: 0.7; /* Optional: adjust for hover effect */
+  }
+
+
+  @media (max-width: 768px) {
+    :host {
+        flex-direction: column;
+        align-items: center;
+        gap: 1vw; 
+    }
+
+    .app-name {
+        margin-top: 10px;
+        margin-bottom: 10px; 
+    }
+
+    .nav {
+        flex-direction: column; 
+        margin-left: 0; 
+        margin-right: 0;
+        gap: 10px;
+    }
+
+    .nav a {
+        text-align: center;
+    }
+
+    .github-icon-wrapper {
+        margin-top: 10px; 
+    }
+}

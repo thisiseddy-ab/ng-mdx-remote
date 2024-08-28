@@ -1,0 +1,90 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --pink-color : #b5179e;
+  --yellow-color : #ffe267;
+  --red-color : #e81224;
+  --white-color : #fdf0d5;
+  --dark-color: #040D12;
+  --gradient_01 : linear-gradient(238deg, var(--pink-color) 0%, var(--yellow-color) 100%);
+  --gradient_01_reverse : linear-gradient(140deg, var(--pink-color) 0%, var(--yellow-color) 100%);
+  --gradient_01_upward: linear-gradient(0deg, var(--pink-color) 0%, var(--yellow-color) 100%);
+  --gradient_01_downward: linear-gradient(180deg, var(--pink-color) 0%, var(--yellow-color) 100%);
+}
+
+/* #e36581 #ffe267 */
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+html, body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-color);
+  overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  font-family: 'Helvetica',sans-serif;
+}
+
+ng-mdx-remote-render * img[data-twemoji] {
+  width: 23px;  /* Set the desired width */
+  height: 23px; /* Set the desired height */
+}
+
+ng-mdx-remote-render * .command,.output {
+  display: block;
+  float: left;
+  font-size: 100%;
+  letter-spacing: -1px;
+  margin-right: 1em;
+  pointer-events: none;
+  text-align: right;
+}
+
+ng-mdx-remote-render p, * li {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+
+.ng-mdx-remote-clipboard-toolbar {
+  top: 16px;
+  right: 16px;
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+}
+
+
+.ng-mdx-remote-clipboard-toolbar.hover {
+  opacity: 1;
+}
+
+.ng-mdx-remote-clipboard-button {
+  background-color: rgba(255, 255, 255, 0.07);
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 11px;
+  padding: 4px 0;
+  width: 50px;
+  transition: background-color 500ms ease-in-out, color 250ms ease-out, transform 100ms ease-out;
+}
+
+.ng-mdx-remote-clipboard-button.copied {
+  background-color: rgba(0, 255, 0, 0.1); 
+  color: #00ff00; 
+}
+
+.ng-mdx-remote-clipboard-button:hover {
+  background-color: rgba(255, 255, 255, 0.14); 
+}
+
+.ng-mdx-remote-clipboard-button:active {
+  transform: scale(0.95); 
+}
+

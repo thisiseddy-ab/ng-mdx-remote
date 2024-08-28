@@ -1,0 +1,2 @@
+export const errorClipboardNotLoaded = '[ng-remote-mdx] When using the `clipboard` attribute you *have to* include Clipboard files to `angular.json` or use imports. See README for more information';
+export const errorClipboardViewContainerRequired = '[ng-remote-mdx] When using the `clipboard` attribute you *have to* provide the `viewContainerRef` parameter to `MarkdownService.render()` function';

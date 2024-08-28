@@ -1,0 +1,12 @@
+:host {
+    display: block;  /* Ensure the host element uses the full available space */
+    width: 100%;     /* Ensure the host element is as wide as possible */
+    height: 100%;    /* Ensure the host element is as tall as possible */
+    overflow: hidden; /* Hide any overflow to prevent visual issues */
+  }
+  
+  svg {
+    display: block;  /* Remove any extra space around the SVG */
+    width: 100%;     /* Ensure the SVG scales to the width of its container */
+    height: 100%;    /* Ensure the SVG scales to the height of its container */
+  }

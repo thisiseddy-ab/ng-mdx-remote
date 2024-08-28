@@ -1,0 +1,147 @@
+# Usin Remark Gemoji Plugin
+
+The remark-gemoji plugin is a powerful tool for enhancing Markdown content by automatically converting GitHub-style emoji shortcodes into their corresponding emoji characters. This plugin is part of the Remark ecosystem, a collection of tools for parsing, transforming, and serializing Markdown. With remark-gemoji, you can easily add expressive and visually engaging emojis to your Markdown documents using simple text-based codes.
+
+## Key Features
+
+    * Automatic Emoji Conversion: The plugin detects GitHub-style emoji shortcodes within your Markdown text and replaces them with the corresponding emoji characters.
+
+    * Support for a Wide Range of Emojis: The plugin supports all standard GitHub emoji shortcodes, giving you access to a vast library of emojis.
+
+    * Seamless Integration: remark-gemoji integrates easily into your existing Remark setup, allowing you to add emoji conversion to your Markdown processing pipeline without hassle.
+
+```bash
+# https://www.npmjs.com/package/remark-gemoji
+npm install remark-gemoji
+```
+
+The "pluginName" needs to be exactly "remarkGemoji"
+
+```typescript
+
+import {Input_SerializeOptions} from 'ng-mdx-remote';
+import remarkGemoji from 'remark-gemoji'
+
+mdxOptions: SerializeOptions = {
+    scope: {},
+    mdxOptions: {
+      remarkPlugins: [
+        {pluginName: 'remarkGemoji', pluginFunc: remarkGemoji}
+      ], 
+      rehypePlugins: [
+      ],
+      format: 'mdx',
+      development: false
+    },
+    parseFrontmatter: true,
+  };
+
+```
+
+You need to activate the plugin in Component
+
+```html
+
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  gemoji
+  ></ng-mdx-remote-render>
+
+```
+
+# Usin Remark Emoji (Gemoji) Plugin
+
+The remark-emoji plugin is a useful tool within the Remark ecosystem that enhances Markdown documents by converting emoji shortcodes into their corresponding Unicode emoji characters. This plugin makes it easy to add visual interest and expressiveness to your Markdown content, ensuring that emojis are displayed correctly across different platforms and devices.
+
+## Key Features
+
+    * Automatic Emoji Conversion: Converts common emoji shortcodes into their corresponding Unicode emoji characters within your Markdown content.
+
+    * Broad Emoji Support: Includes a wide range of emoji shortcodes, ensuring that you have access to a diverse set of emojis to enhance your content.
+
+    * Seamless Integration: Easily integrates into your existing Remark processing pipeline, requiring minimal configuration.
+
+This plugin will Raise an Error in normal Angular App, but will work in AnalogJS
+
+```bash
+# https://www.npmjs.com/package/remark-emoji
+npm install remark-emoji
+```
+
+The "pluginName" needs to be exactly "remark-emoji"
+
+```typescript
+
+import {Input_SerializeOptions, RemarkEmojiOptions} from 'ng-mdx-remote';
+import emoji from 'remark-emoji';
+
+mdxOptions: SerializeOptions = {
+    scope: {},
+    mdxOptions: {
+      remarkPlugins: [
+        {pluginName: 'remark-emoji', pluginFunc: emoji, pluginOptions: {accessible: true, padSpaceAfter: true, emoticon: true} satisfies RemarkEmojiOptions}
+      ], 
+      rehypePlugins: [
+      ],
+      format: 'mdx',
+      development: false
+    },
+    parseFrontmatter: true,
+  };
+
+```
+
+You need to activate the plugin in the component, and you can update the options. Each component can have different options.
+
+```html
+
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  gemoji
+  [gemoji_options]="{accessible: false, padSpaceAfter: true, emoticon: false}"
+  ></ng-mdx-remote-render>
+
+```
+
+## Here an Exaple using Gemojis
+
+```markdown
+
+Emojis in this text will be replaced: :dog::+1:
+
+I’m so excited for the weekend! :tada::raised_hands:
+
+Just finished a great workout! :muscle::sweat_smile:
+
+It’s a beautiful day outside! :sunny::deciduous_tree:
+
+Happy birthday to my best friend! :birthday::balloon:
+
+Can’t wait to see you tonight! :wave::smiley:
+
+Look, the moon :new_moon_with_face:
+
+Here’s a family :family_man_man_boy_boy:
+
+
+```
+
+Emojis in this text will be replaced: :dog::+1:
+
+I’m so excited for the weekend! :tada::raised_hands:
+
+Just finished a great workout! :muscle::sweat_smile:
+
+It’s a beautiful day outside! :sunny::deciduous_tree:
+
+Happy birthday to my best friend! :birthday::balloon:
+
+Can’t wait to see you tonight! :wave::smiley:
+
+Look, the moon :new_moon_with_face:
+
+Here’s a family :family_man_man_boy_boy:

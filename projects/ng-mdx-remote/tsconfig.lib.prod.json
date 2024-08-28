@@ -1,0 +1,16 @@
+//tsconfig.lib.prod.json
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.lib.json",
+  "compilerOptions": {
+    "declarationMap": false
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial"
+  },
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts"
+  ]
+}

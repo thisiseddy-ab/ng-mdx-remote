@@ -1,0 +1,18 @@
+
+.home-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Flexible columns */
+    gap: 10px; 
+    width: 100%;
+    max-height: 100%;
+    margin: 0;
+}
+
+
+.card-theme {
+    background: var(--gradient_01);
+}
+  
+.card-theme-reverse {
+    background: var(--gradient_01_reverse);
+}

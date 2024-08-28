@@ -1,0 +1,11 @@
+<div class="home-wrapper" >
+    @for (ex of exampleList; track ex.Id ; let idx = $index) {
+        <ex-card 
+        [title]="ex.Title"
+        [description]="ex.Description" 
+        [href]="['/examples', ex.Id]"
+        [ngClass]="idx % 2 === 0 ? 'card-theme-reverse' : 'card-theme'"></ex-card>
+    } @empty {
+        <P>There is No Example</P>
+    }
+</div>

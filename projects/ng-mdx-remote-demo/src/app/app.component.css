@@ -1,0 +1,15 @@
+header-main{
+    min-height: 12.5vh;
+}
+
+main{
+    flex: 1;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    padding:8px;
+}
+
+footer-main{
+    min-height: 12.5vh;
+}

@@ -1,0 +1,39 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    z-index: 100;
+    top:0;
+    padding: .5% 2% .5% 2%;
+    gap : 2vw;
+    background : var(--gradient_01_reverse)
+}
+
+p,a,span{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+p{
+    color: var(--white-color);
+    padding: max(.5rem,.3rem);
+    text-align: center;
+}
+
+span{
+    color: var(--white-color);
+    font-weight: 650;
+}
+
+.yellow-col{
+    color: var(--yellow-color);
+}
+
+.pink-col{
+    color: var(--pink-color);
+    font-weight: 650;
+}
+
