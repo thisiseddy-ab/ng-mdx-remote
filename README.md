@@ -574,7 +574,6 @@ root_folder
 |-- archive 2.tar.gz
 |-- logo.svg
 `-- README.md
-```
 
 ```
 
@@ -625,7 +624,7 @@ h1 {
   text-align: center;
   margin-top: 50px;
 }
-```
+
 </ng-mdx-nested-code>
 
 <ng-mdx-nested-code
@@ -649,7 +648,7 @@ console.log(greeting);
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const evenNumbers = numbers.filter((num) => num % 2 === 0);
 console.log("Even Numbers:", evenNumbers);
-```
+
 </ng-mdx-nested-code>
 
 ```
