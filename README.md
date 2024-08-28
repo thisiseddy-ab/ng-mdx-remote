@@ -18,6 +18,8 @@ Integrating MDX into Angular applications opens up a plethora of possibilities f
 
 * [Installation](#Installation)
 * [React/Angular Components](#Having-React-and-Angular-Components-in-an-MDX-File)
+* [Use Build-in PrismJS Plugin](#Use Build-in PrismJS Plugin)
+  * [Use PrismJS lineHighlight Plugin](#Use PrismJS lineHighlight Plugin)
 * [Use remark/rehype Plugins](#Use-remark-and-rehype-Plugins)
 
 ## Installation
@@ -764,11 +766,11 @@ The remark-gemoji plugin is a powerful tool for enhancing Markdown content by au
 
 ## Key Features
 
-    * Automatic Emoji Conversion: The plugin detects GitHub-style emoji shortcodes within your Markdown text and replaces them with the corresponding emoji characters.
+  * Automatic Emoji Conversion: The plugin detects GitHub-style emoji shortcodes within your Markdown text and replaces them with the corresponding emoji characters.
 
-    * Support for a Wide Range of Emojis: The plugin supports all standard GitHub emoji shortcodes, giving you access to a vast library of emojis.
+  * Support for a Wide Range of Emojis: The plugin supports all standard GitHub emoji shortcodes, giving you access to a vast library of emojis.
 
-    * Seamless Integration: remark-gemoji integrates easily into your existing Remark setup, allowing you to add emoji conversion to your Markdown processing pipeline without hassle.
+  * Seamless Integration: remark-gemoji integrates easily into your existing Remark setup, allowing you to add emoji conversion to your Markdown processing pipeline without hassle.
 
 ```bash
 # https://www.npmjs.com/package/remark-gemoji
@@ -872,11 +874,11 @@ The rehype-twemoji plugin is a powerful tool within the Rehype ecosystem that en
 
 ## Key Features
 
-    * Twitter-Style Emojis: Converts standard Unicode emojis into Twitter’s Twemoji images, available in both SVG and PNG formats.
+  * Twitter-Style Emojis: Converts standard Unicode emojis into Twitter’s Twemoji images, available in both SVG and PNG formats.
 
-    * Consistent Rendering: Ensures that emojis are displayed consistently across all platforms and devices, regardless of native emoji support or rendering differences.
+  * Consistent Rendering: Ensures that emojis are displayed consistently across all platforms and devices, regardless of native emoji support or rendering differences.
 
-    * Customization Options: Allows for customization of the emoji format (SVG or PNG) and provides options for setting the size and styling of the emojis.
+  * Customization Options: Allows for customization of the emoji format (SVG or PNG) and provides options for setting the size and styling of the emojis.
 
 ```bash
 # https://www.npmjs.com/package/rehype-twemoji
@@ -937,13 +939,13 @@ The rehype-katex plugin is a powerful tool that enables the rendering of LaTeX m
 
 ## Key Features
 
-    * LaTeX to KaTeX Conversion: Converts LaTeX math expressions, both inline ($...$) and display ($$...$$), into KaTeX-rendered HTML, providing high-quality mathematical typesetting.
+  * LaTeX to KaTeX Conversion: Converts LaTeX math expressions, both inline ($...$) and display ($$...$$), into KaTeX-rendered HTML, providing high-quality mathematical typesetting.
 
-    * Fast and Reliable Rendering: KaTeX is known for its speed and reliability, making it ideal for rendering complex equations without performance issues.
+  * Fast and Reliable Rendering: KaTeX is known for its speed and reliability, making it ideal for rendering complex equations without performance issues.
 
-    * Customizable Output: The plugin allows for customization of the KaTeX output, including options for macros, display modes, and other KaTeX settings.
+  * Customizable Output: The plugin allows for customization of the KaTeX output, including options for macros, display modes, and other KaTeX settings.
 
-    * No Dependencies on External Libraries: The plugin can operate entirely within your Rehype processing pipeline, without requiring external JavaScript or CSS files during runtime, making it a lightweight and efficient solution.
+  * No Dependencies on External Libraries: The plugin can operate entirely within your Rehype processing pipeline, without requiring external JavaScript or CSS files during runtime, making it a lightweight and efficient solution.
 
 ```bash
 # https://www.npmjs.com/package/rehype-katex
@@ -993,13 +995,13 @@ The Mermaid plugin is a powerful tool that enables the creation of diagrams and 
 
 ## Key Features
 
-    * Text-Based Diagram Creation: Allows you to define complex diagrams using an intuitive, text-based syntax within your Markdown or HTML files.
+  * Text-Based Diagram Creation: Allows you to define complex diagrams using an intuitive, text-based syntax within your Markdown or HTML files.
 
-    * Wide Range of Diagram Types: Supports various types of diagrams including flowcharts, sequence diagrams, class diagrams, state diagrams, Gantt charts, and more.
+  * Wide Range of Diagram Types: Supports various types of diagrams including flowcharts, sequence diagrams, class diagrams, state diagrams, Gantt charts, and more.
 
-    * Live Rendering: Automatically converts the Mermaid syntax into SVG diagrams during the content processing stage, ensuring that the diagrams are rendered consistently across different platforms.
+  * Live Rendering: Automatically converts the Mermaid syntax into SVG diagrams during the content processing stage, ensuring that the diagrams are rendered consistently across different platforms.
 
-    * Customizable: Offers extensive customization options for styling and configuring the appearance of diagrams, allowing you to tailor the visuals to match your content’s design.
+  * Customizable: Offers extensive customization options for styling and configuring the appearance of diagrams, allowing you to tailor the visuals to match your content’s design.
 
 ```bash
 # https://www.npmjs.com/package/rehype-mermaid
