@@ -60,6 +60,7 @@
             "scripts": [
             ],
             "styles": [
+              "projects/ng-mdx-remote-demo/src/styles.css"
             ],
             "allowedCommonJsDependencies": [
               "dayjs",
