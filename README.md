@@ -31,7 +31,7 @@ Integrating MDX into Angular applications opens up a plethora of possibilities f
 * [Use Remark/Rehype Plugins](#Use-Remark-and-Rehype-Plugins)
   * [Using Remark/Rehype Plugins that are Built-in](#Using-Remark-and-Rehype-Plugins-that-are-Built-in)
   * [Using Remark Gemoji Plugin](#Using-Remark-Gemoji-Plugin)
-  * [Using Remark Emoji (Gemoji) Plugin](#Using-Remark-Emoji-(Gemoji)-Plugin)
+  * [Using Remark Emoji Plugin](#Using-Remark-Emoji-Plugin)
   * [Using Rehype Twemoji Plugin](#Using-Rehype-Twemoji-Plugin)
   * [Using Rehype Katex Plugin](#Using-Rehype-Katex-Plugin)
   * [Using Rehype Mermaid Plugin](#Using-Rehype-Mermaid-Plugin)
@@ -828,7 +828,7 @@ You need to activate the plugin in Component
 
 ```
 
-### Using Remark Emoji (Gemoji) Plugin
+### Using Remark Emoji Plugin
 
 The remark-emoji plugin is a useful tool within the Remark ecosystem that enhances Markdown documents by converting emoji shortcodes into their corresponding Unicode emoji characters. This plugin makes it easy to add visual interest and expressiveness to your Markdown content, ensuring that emojis are displayed correctly across different platforms and devices.
 
