@@ -589,9 +589,9 @@ Incorporate advanced syntax highlighting and customizations into your MDX files 
 
 ### Step-by-Step Integration
 
-    1. Activate the Nested Code Feature: To enable nested code blocks, first, activate the nested_code property in the parent ng-mdx-remote-render component. This component is responsible for rendering your MDX content with support for nested code blocks. Here’s an example configuration.
+  1. Activate the Nested Code Feature: To enable nested code blocks, first, activate the nested_code property in the parent ng-mdx-remote-render component. This component is responsible for rendering your MDX content with support for nested code blocks. Here’s an example configuration.
     
-    2. Add Nested Code Blocks in MDX: Within your MDX file, you can now use the **ng-mdx-nested-code** component to specify different PrismJS options for each code block. Customize code blocks with various features such as line numbers, line highlighting, and more. Here’s how to integrate nested code blocks.
+  2. Add Nested Code Blocks in MDX: Within your MDX file, you can now use the **ng-mdx-nested-code** component to specify different PrismJS options for each code block. Customize code blocks with various features such as line numbers, line highlighting, and more. Here’s how to integrate nested code blocks.
 
 First Activate the "nested_code" Property in Parent "ng-mdx-remote-render"  Component
 
