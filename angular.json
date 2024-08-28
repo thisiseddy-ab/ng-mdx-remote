@@ -58,9 +58,17 @@
               "projects/ng-mdx-remote-demo/src/assets"
             ],
             "scripts": [
+              
             ],
             "styles": [
-              "projects/ng-mdx-remote-demo/src/styles.css"
+              "projects/ng-mdx-remote-demo/src/styles.css",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+              "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css",
+              "node_modules/prismjs/plugins/command-line/prism-command-line.css",
+              "node_modules/prismjs/plugins/diff-highlight/prism-diff-highlight.css",
+              "node_modules/prismjs/plugins/match-braces/prism-match-braces.css",
+              "node_modules/prismjs/plugins/treeview/prism-treeview.css"
             ],
             "allowedCommonJsDependencies": [
               "dayjs",

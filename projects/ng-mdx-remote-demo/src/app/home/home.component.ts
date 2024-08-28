@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
+
 import {NgMdxRemoteModule,Input_SerializeOptions} from 'ng-mdx-remote'
-
-
 
 @Component({
   selector: 'home-main',
