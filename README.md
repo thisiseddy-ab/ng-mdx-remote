@@ -1,6 +1,6 @@
 # Introduction
 
-**ng-mdx-remote** ***(Angular MDX Remote)*** is inspired from [**next-mdx-remote**](https://github.com/hashicorp/next-mdx-remote) and [**ngx-markdown**](https://www.npmjs.com/package/ngx-markdown), designed to bring the power and flexibility of MDX to Angular applications. With ng-mdx-remote, you can seamlessly integrate MDX content into your Angular projects, enabling rich, interactive documentation and content-driven applications.
+**ng-mdx-remote** ***(Angular MDX Remote)*** is inspired from [**next-mdx-remote**](https://github.com/hashicorp/next-mdx-remote) and [**ngx-markdown**](https://github.com/jfcere/ngx-markdown), designed to bring the power and flexibility of MDX to Angular applications. With ng-mdx-remote, you can seamlessly integrate MDX content into your Angular projects, enabling rich, interactive documentation and content-driven applications.
 
 Although this library allows you to leverage MDX within Angular, it is important to note for now that it still utilizes React under the hood. Therefore, it effectively creates a hybrid Angular/React environment, combining the best of both worlds.
 
@@ -13,6 +13,8 @@ Although this library allows you to leverage MDX within Angular, it is important
 ### Why Use ng-mdx-remote?
 
 Integrating MDX into Angular applications opens up a plethora of possibilities for creating interactive and rich content. Whether you are building documentation sites, blogs, or content-driven applications, ng-mdx-remote offers a streamlined way to bring the dynamic capabilities of MDX to your Angular projects.
+
+Demo available @ [https://thisiseddy-ab.github.io/ng-mdx-remote/](https://thisiseddy-ab.github.io/ng-mdx-remote/)  
 
 ## Content
 
