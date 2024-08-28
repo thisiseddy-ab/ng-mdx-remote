@@ -14,6 +14,27 @@ Although this library allows you to leverage MDX within Angular, it is important
 
 Integrating MDX into Angular applications opens up a plethora of possibilities for creating interactive and rich content. Whether you are building documentation sites, blogs, or content-driven applications, ng-mdx-remote offers a streamlined way to bring the dynamic capabilities of MDX to your Angular projects.
 
+## Content
+
+* [Installation](#Installation)
+* [React/Angular Components](#Having-React-and-Angular-Components-in-an-MDX-File)
+* [Use Build-in PrismJS Plugin](#Use-Build-in-PrismJS-Plugin)
+  * [Use PrismJS lineHighlight Plugin](#Use-PrismJS-lineHighlight-Plugin)
+  * [Use PrismJS Line Numbers Plugin](#Use-PrismJS-Line-Numbers-Plugin)
+  * [Use PrismJS Command Line Plugin](#Use-PrismJS-Command-Line-Plugin)
+  * [Use PrismJS DiffHighlight Plugin](#Use-PrismJS-DiffHighlight-Plugin)
+  * [Use PrismJS Match Braces Plugin](#Use-PrismJS-Match-Braces-Plugin)
+  * [Use PrismJS Normalize Whitespace Plugin](#Use-PrismJS-Normalize-Whitespace-Plugin)
+  * [Using Other PrismJS Plugins](#Using-Other-PrismJS-Plugins)
+  * [Using PrismJS Nested Code Block inside MDX File](#Using-PrismJS-Nested-Code-Block-inside-MDX-File)
+* [Using Build-in Clipboard Plugin](#Using-Build-in-Clipboard-Plugin)
+* [Use Remark/Rehype Plugins](#Use-Remark-and-Rehype-Plugins)
+  * [Using Remark/Rehype Plugins that are Built-in](#Using-Remark-and-Rehype-Plugins-that-are-Built-in)
+  * [Using Remark Gemoji Plugin](#Using-Remark-Gemoji-Plugin)
+  * [Using Remark Emoji Plugin](#Using-Remark-Emoji-Plugin)
+  * [Using Rehype Twemoji Plugin](#Using-Rehype-Twemoji-Plugin)
+  * [Using Rehype Katex Plugin](#Using-Rehype-Katex-Plugin)
+  * [Using Rehype Mermaid Plugin](#Using-Rehype-Mermaid-Plugin)
 
 ## Installation
 
@@ -21,7 +42,7 @@ First we need to install the **ng-mdx-remote** from GitHub Releaseas (no NPM Pac
 
 ```bash
 # npm install https://github.com/thisiseddy-ab/ng-mdx-remote/releases/download/tag-name/file-name.tgz
-npm install https://github.com/thisiseddy-ab/ng-mdx-remote/releases/download/v0.0.1/ng-mdx-remote-0.0.1.tgz
+npm install https://github.com/thisiseddy-ab/ng-mdx-remote/releases/download/v1.0.0/ng-mdx-remote-1.0.0.tgz 
 ```
 
 Second we need to install this React and Mdx Packages ***npm install react react-dom @mdx-js/mdx @mdx-js/react vfile vfile-matter prismjs clipboard***.
@@ -42,7 +63,7 @@ sourceType can be string,url,file
 #### app.component.ts
 
 ```typescript
-import {NgMdxRemoteModule,SerializeOptions} from 'ng-mdx-remote'
+import {NgMdxRemoteModule,Input_SerializeOptions} from 'ng-mdx-remote'
 
 @Component({
   selector: 'app-root',
@@ -65,7 +86,7 @@ export class AppComponent {
     - **JSX Support:** Embed JSX in Markdown.
     `;
 
-    mdxOptions: SerializeOptions = {
+    mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -225,7 +246,7 @@ This is a simple MDX file.
 <ng-greeting name="Edin Abdiu"></ng-greeting>
 `;
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
 scope: {},
 mdxOptions: {
   remarkPlugins: [
@@ -362,7 +383,7 @@ Additionally, you can use start input property to specify the offset number for 
   ></ng-mdx-remote-render>
 ```
 
-### Use PrismJS commandLine Plugin 
+### Use PrismJS Command Line Plugin
 
 The Command Line Plugin for PrismJS is a specialized extension designed to enhance the presentation of command-line interface (CLI) code snippets. This plugin simulates the look and feel of a terminal or command prompt, making it easier for users to distinguish between commands, output, and other elements typically seen in a CLI environment.
 
@@ -559,17 +580,18 @@ root_folder
 |-- archive 2.tar.gz
 |-- logo.svg
 `-- README.md
+
 ```
 
 ## Using PrismJS Nested Code Block inside MDX File
 
 Incorporate advanced syntax highlighting and customizations into your MDX files by utilizing PrismJS nested code blocks. This feature allows you to fine-tune the appearance and functionality of code blocks within your documentation or content, offering enhanced control over syntax highlighting and code presentation.
 
-## Step-by-Step Integration
+### Step-by-Step Integration
 
-    1. Activate the Nested Code Feature: To enable nested code blocks, first, activate the nested_code property in the parent ng-mdx-remote-render component. This component is responsible for rendering your MDX content with support for nested code blocks. Here’s an example configuration.
+  1. Activate the Nested Code Feature: To enable nested code blocks, first, activate the nested_code property in the parent ng-mdx-remote-render component. This component is responsible for rendering your MDX content with support for nested code blocks. Here’s an example configuration.
     
-    2. Add Nested Code Blocks in MDX: Within your MDX file, you can now use the **ng-mdx-nested-code** component to specify different PrismJS options for each code block. Customize code blocks with various features such as line numbers, line highlighting, and more. Here’s how to integrate nested code blocks.
+  2. Add Nested Code Blocks in MDX: Within your MDX file, you can now use the **ng-mdx-nested-code** component to specify different PrismJS options for each code block. Customize code blocks with various features such as line numbers, line highlighting, and more. Here’s how to integrate nested code blocks.
 
 First Activate the "nested_code" Property in Parent "ng-mdx-remote-render"  Component
 
@@ -676,7 +698,7 @@ clipboardrOptions : ClipboardRenderOptions = {
   buttonTemplate: Custom_Clipboard_Component
 }
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -716,7 +738,7 @@ npm install rehype_plugin
 ```
 
 ```typescript
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -734,7 +756,7 @@ mdxOptions: SerializeOptions = {
 If the Plugin, has Options you can pass it like this:
 
 ```typescript
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -749,21 +771,21 @@ mdxOptions: SerializeOptions = {
   };
 ```
 
-## Using Remark/Rehype Plugins that are Built-in
+## Using Remark and Rehype Plugins that are Built-in
 
 Because some plugin have the same Function Name ore the Function Name is just "plugin", i made an new way to add the build in Remark/Rehype Plugins os it has specific name:
 
-### Usin Remark Gemoji Plugin
+### Using Remark Gemoji Plugin
 
 The remark-gemoji plugin is a powerful tool for enhancing Markdown content by automatically converting GitHub-style emoji shortcodes into their corresponding emoji characters. This plugin is part of the Remark ecosystem, a collection of tools for parsing, transforming, and serializing Markdown. With remark-gemoji, you can easily add expressive and visually engaging emojis to your Markdown documents using simple text-based codes.
 
-## Key Features
+#### Key Features
 
-    * Automatic Emoji Conversion: The plugin detects GitHub-style emoji shortcodes within your Markdown text and replaces them with the corresponding emoji characters.
+  * Automatic Emoji Conversion: The plugin detects GitHub-style emoji shortcodes within your Markdown text and replaces them with the corresponding emoji characters.
 
-    * Support for a Wide Range of Emojis: The plugin supports all standard GitHub emoji shortcodes, giving you access to a vast library of emojis.
+  * Support for a Wide Range of Emojis: The plugin supports all standard GitHub emoji shortcodes, giving you access to a vast library of emojis.
 
-    * Seamless Integration: remark-gemoji integrates easily into your existing Remark setup, allowing you to add emoji conversion to your Markdown processing pipeline without hassle.
+  * Seamless Integration: remark-gemoji integrates easily into your existing Remark setup, allowing you to add emoji conversion to your Markdown processing pipeline without hassle.
 
 ```bash
 # https://www.npmjs.com/package/remark-gemoji
@@ -777,7 +799,7 @@ The "pluginName" needs to be exactly "remarkGemoji"
 import {Input_SerializeOptions} from 'ng-mdx-remote';
 import remarkGemoji from 'remark-gemoji'
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -806,17 +828,16 @@ You need to activate the plugin in Component
 
 ```
 
-### Usin Remark Emoji (Gemoji) Plugin
+### Using Remark Emoji Plugin
 
 The remark-emoji plugin is a useful tool within the Remark ecosystem that enhances Markdown documents by converting emoji shortcodes into their corresponding Unicode emoji characters. This plugin makes it easy to add visual interest and expressiveness to your Markdown content, ensuring that emojis are displayed correctly across different platforms and devices.
 
-## Key Features
+#### Key Features
+  * Automatic Emoji Conversion: Converts common emoji shortcodes into their corresponding Unicode emoji characters within your Markdown content.
 
-    * Automatic Emoji Conversion: Converts common emoji shortcodes into their corresponding Unicode emoji characters within your Markdown content.
+  * Broad Emoji Support: Includes a wide range of emoji shortcodes, ensuring that you have access to a diverse set of emojis to enhance your content.
 
-    * Broad Emoji Support: Includes a wide range of emoji shortcodes, ensuring that you have access to a diverse set of emojis to enhance your content.
-
-    * Seamless Integration: Easily integrates into your existing Remark processing pipeline, requiring minimal configuration.
+  * Seamless Integration: Easily integrates into your existing Remark processing pipeline, requiring minimal configuration.
 
 This plugin will Raise an Error in normal Angular App, but will work in AnalogJS
 
@@ -832,7 +853,7 @@ The "pluginName" needs to be exactly "remark-emoji"
 import {Input_SerializeOptions, RemarkEmojiOptions} from 'ng-mdx-remote';
 import emoji from 'remark-emoji';
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -862,17 +883,17 @@ You need to activate the plugin in the component, and you can update the options
 
 ```
 
-### Usin Rehype Twemoji Plugin
+### Using Rehype Twemoji Plugin
 
 The rehype-twemoji plugin is a powerful tool within the Rehype ecosystem that enhances HTML content by transforming standard Unicode emojis into Twitter-style emoji images (SVG or PNG). This plugin allows you to maintain a consistent, high-quality emoji appearance across all platforms, making your content visually appealing and easily recognizable.
 
-## Key Features
+#### Key Features
 
-    * Twitter-Style Emojis: Converts standard Unicode emojis into Twitter’s Twemoji images, available in both SVG and PNG formats.
+  * Twitter-Style Emojis: Converts standard Unicode emojis into Twitter’s Twemoji images, available in both SVG and PNG formats.
 
-    * Consistent Rendering: Ensures that emojis are displayed consistently across all platforms and devices, regardless of native emoji support or rendering differences.
+  * Consistent Rendering: Ensures that emojis are displayed consistently across all platforms and devices, regardless of native emoji support or rendering differences.
 
-    * Customization Options: Allows for customization of the emoji format (SVG or PNG) and provides options for setting the size and styling of the emojis.
+  * Customization Options: Allows for customization of the emoji format (SVG or PNG) and provides options for setting the size and styling of the emojis.
 
 ```bash
 # https://www.npmjs.com/package/rehype-twemoji
@@ -886,7 +907,7 @@ The "pluginName" needs to be exactly "rehype-twemoji"
 import {Input_SerializeOptions, RehypeTwemojiOptions} from 'ng-mdx-remote';
 import { rehypeTwemoji } from 'rehype-twemoji'
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -927,19 +948,19 @@ ng-mdx-remote-render * img[data-twemoji] {
 
 ```
 
-### Usin Rehype Katex Plugin
+### Using Rehype Katex Plugin
 
 The rehype-katex plugin is a powerful tool that enables the rendering of LaTeX math equations in HTML content. By integrating this plugin into your Rehype processing pipeline, you can seamlessly convert LaTeX math expressions within your Markdown or HTML files into beautifully formatted mathematical notation, using the popular KaTeX library.
 
-## Key Features
+#### Key Features
 
-    * LaTeX to KaTeX Conversion: Converts LaTeX math expressions, both inline ($...$) and display ($$...$$), into KaTeX-rendered HTML, providing high-quality mathematical typesetting.
+  * LaTeX to KaTeX Conversion: Converts LaTeX math expressions, both inline ($...$) and display ($$...$$), into KaTeX-rendered HTML, providing high-quality mathematical typesetting.
 
-    * Fast and Reliable Rendering: KaTeX is known for its speed and reliability, making it ideal for rendering complex equations without performance issues.
+  * Fast and Reliable Rendering: KaTeX is known for its speed and reliability, making it ideal for rendering complex equations without performance issues.
 
-    * Customizable Output: The plugin allows for customization of the KaTeX output, including options for macros, display modes, and other KaTeX settings.
+  * Customizable Output: The plugin allows for customization of the KaTeX output, including options for macros, display modes, and other KaTeX settings.
 
-    * No Dependencies on External Libraries: The plugin can operate entirely within your Rehype processing pipeline, without requiring external JavaScript or CSS files during runtime, making it a lightweight and efficient solution.
+  * No Dependencies on External Libraries: The plugin can operate entirely within your Rehype processing pipeline, without requiring external JavaScript or CSS files during runtime, making it a lightweight and efficient solution.
 
 ```bash
 # https://www.npmjs.com/package/rehype-katex
@@ -953,7 +974,7 @@ The "pluginName" needs to be exactly "rehypeKatex"
 import {Input_SerializeOptions, KatexOptions} from 'ng-mdx-remote';
 import rehypeKatex from 'rehype-katex';
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -983,19 +1004,19 @@ You need to activate the plugin in the component, and you can update the options
 
 ```
 
-### Usin Rehype Mermaid Plugin
+### Using Rehype Mermaid Plugin
 
 The Mermaid plugin is a powerful tool that enables the creation of diagrams and flowcharts directly within Markdown or HTML content. By integrating this plugin into your workflow, you can seamlessly convert text-based descriptions of diagrams into beautifully rendered visualizations. This is particularly useful for documentation, technical writing, and any content where clear, concise diagrams can enhance understanding.
 
-## Key Features
+### Key Features
 
-    * Text-Based Diagram Creation: Allows you to define complex diagrams using an intuitive, text-based syntax within your Markdown or HTML files.
+  * Text-Based Diagram Creation: Allows you to define complex diagrams using an intuitive, text-based syntax within your Markdown or HTML files.
 
-    * Wide Range of Diagram Types: Supports various types of diagrams including flowcharts, sequence diagrams, class diagrams, state diagrams, Gantt charts, and more.
+  * Wide Range of Diagram Types: Supports various types of diagrams including flowcharts, sequence diagrams, class diagrams, state diagrams, Gantt charts, and more.
 
-    * Live Rendering: Automatically converts the Mermaid syntax into SVG diagrams during the content processing stage, ensuring that the diagrams are rendered consistently across different platforms.
+  * Live Rendering: Automatically converts the Mermaid syntax into SVG diagrams during the content processing stage, ensuring that the diagrams are rendered consistently across different platforms.
 
-    * Customizable: Offers extensive customization options for styling and configuring the appearance of diagrams, allowing you to tailor the visuals to match your content’s design.
+  * Customizable: Offers extensive customization options for styling and configuring the appearance of diagrams, allowing you to tailor the visuals to match your content’s design.
 
 ```bash
 # https://www.npmjs.com/package/rehype-mermaid
@@ -1009,7 +1030,7 @@ The "pluginName" needs to be exactly "rehypeMermaid"
 import {Input_SerializeOptions, KatexOptions} from 'ng-mdx-remote';
 import rehypeMermaid from 'rehype-mermaid'
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [

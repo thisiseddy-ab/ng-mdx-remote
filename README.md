@@ -63,7 +63,7 @@ sourceType can be string,url,file
 #### app.component.ts
 
 ```typescript
-import {NgMdxRemoteModule,SerializeOptions} from 'ng-mdx-remote'
+import {NgMdxRemoteModule,Input_SerializeOptions} from 'ng-mdx-remote'
 
 @Component({
   selector: 'app-root',
@@ -86,7 +86,7 @@ export class AppComponent {
     - **JSX Support:** Embed JSX in Markdown.
     `;
 
-    mdxOptions: SerializeOptions = {
+    mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -246,7 +246,7 @@ This is a simple MDX file.
 <ng-greeting name="Edin Abdiu"></ng-greeting>
 `;
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
 scope: {},
 mdxOptions: {
   remarkPlugins: [
@@ -698,7 +698,7 @@ clipboardrOptions : ClipboardRenderOptions = {
   buttonTemplate: Custom_Clipboard_Component
 }
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -738,7 +738,7 @@ npm install rehype_plugin
 ```
 
 ```typescript
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -756,7 +756,7 @@ mdxOptions: SerializeOptions = {
 If the Plugin, has Options you can pass it like this:
 
 ```typescript
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -799,7 +799,7 @@ The "pluginName" needs to be exactly "remarkGemoji"
 import {Input_SerializeOptions} from 'ng-mdx-remote';
 import remarkGemoji from 'remark-gemoji'
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -853,7 +853,7 @@ The "pluginName" needs to be exactly "remark-emoji"
 import {Input_SerializeOptions, RemarkEmojiOptions} from 'ng-mdx-remote';
 import emoji from 'remark-emoji';
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -907,7 +907,7 @@ The "pluginName" needs to be exactly "rehype-twemoji"
 import {Input_SerializeOptions, RehypeTwemojiOptions} from 'ng-mdx-remote';
 import { rehypeTwemoji } from 'rehype-twemoji'
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -974,7 +974,7 @@ The "pluginName" needs to be exactly "rehypeKatex"
 import {Input_SerializeOptions, KatexOptions} from 'ng-mdx-remote';
 import rehypeKatex from 'rehype-katex';
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
@@ -1030,7 +1030,7 @@ The "pluginName" needs to be exactly "rehypeMermaid"
 import {Input_SerializeOptions, KatexOptions} from 'ng-mdx-remote';
 import rehypeMermaid from 'rehype-mermaid'
 
-mdxOptions: SerializeOptions = {
+mdxOptions: Input_SerializeOptions = {
     scope: {},
     mdxOptions: {
       remarkPlugins: [
