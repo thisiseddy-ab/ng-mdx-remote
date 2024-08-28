@@ -576,6 +576,8 @@ root_folder
 `-- README.md
 ```
 
+```
+
 ## Using PrismJS Nested Code Block inside MDX File
 
 Incorporate advanced syntax highlighting and customizations into your MDX files by utilizing PrismJS nested code blocks. This feature allows you to fine-tune the appearance and functionality of code blocks within your documentation or content, offering enhanced control over syntax highlighting and code presentation.
@@ -623,7 +625,7 @@ h1 {
   text-align: center;
   margin-top: 50px;
 }
-
+```
 </ng-mdx-nested-code>
 
 <ng-mdx-nested-code
@@ -647,7 +649,7 @@ console.log(greeting);
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const evenNumbers = numbers.filter((num) => num % 2 === 0);
 console.log("Even Numbers:", evenNumbers);
-
+```
 </ng-mdx-nested-code>
 
 ```
