@@ -229,16 +229,15 @@ export class NgMdxRemoteComponent implements AfterViewInit, OnChanges, OnDestroy
   async ngAfterViewInit() {
     if (this.source) {
       this.reactRoot = ReactDOM.createRoot(this.elementRef.nativeElement);
-
+      
+      if(this.nested_code){
+        this.createNestedCode_Comp()
+      }
+      
       if (this.ngComponents) {
-        if(this.nested_code){
-          this.ngComponents = {
-            ...this.ngComponents,
-            ...{"ng-mdx-nested-code" : NgMDXNestedCodeComponent}
-          }
-        }
         this.mdxService.convertNGComponents_FromObject(this.ngComponents);
       }
+      
       await this.mdxService.renderMdx(this.source, this.sourceType, this.reactRoot, this.elementRef, this.viewContainerRef, this.options , this.createRenderOptions(), this.reactComponents);
     }
   }
@@ -249,16 +248,28 @@ export class NgMdxRemoteComponent implements AfterViewInit, OnChanges, OnDestroy
         return;
     }
 
-    if (changes['source'] || changes['options'] || changes['reactComponents']) {
+    if (changes['source'] || changes['options'] || changes['reactComponents'] || changes['nested_code']) {
         try {
+
+          if(this.nested_code){
+            this.createNestedCode_Comp()
+            this.mdxService.convertNGComponents_FromObject(this.ngComponents);
+          }
+
           await this.mdxService.renderMdx(this.source, this.sourceType, this.reactRoot, this.elementRef, this.viewContainerRef, this.options , this.createRenderOptions(), this.reactComponents);
         } catch (error) {
             console.error('Error rendering MDX:', error);
         }
     } else if (changes['ngComponents']) {
         try {
-            this.mdxService.convertNGComponents_FromObject(this.ngComponents);
-            await this.mdxService.renderMdx(this.source, this.sourceType, this.reactRoot, this.elementRef, this.viewContainerRef, this.options , this.createRenderOptions(), this.reactComponents);
+          
+          if(this.nested_code){
+            this.createNestedCode_Comp()
+          }
+          
+          this.mdxService.convertNGComponents_FromObject(this.ngComponents);
+            
+          await this.mdxService.renderMdx(this.source, this.sourceType, this.reactRoot, this.elementRef, this.viewContainerRef, this.options , this.createRenderOptions(), this.reactComponents);
         } catch (error) {
             console.error('Error converting NG components or rendering MDX:', error);
         }
@@ -273,6 +284,15 @@ export class NgMdxRemoteComponent implements AfterViewInit, OnChanges, OnDestroy
 
   private coerceBooleanProperty(value: boolean | ''): boolean {
     return value != null && `${String(value)}` !== 'false';
+  }
+
+  private createNestedCode_Comp() : void {
+    if(this.nested_code){
+      this.ngComponents = {
+        ...this.ngComponents,
+        ...{"ng-mdx-nested-code" : NgMDXNestedCodeComponent}
+      }
+    }
   }
 
   private createRenderOptions(): Render_Options {
