@@ -1,6 +1,6 @@
 {
   "name": "ng-mdx-remote",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "An Angular Plugin for rendering MDX content with React components.",
   "peerDependencies": {
     "@angular/common": "^17.0.0",

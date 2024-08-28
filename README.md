@@ -26,7 +26,7 @@ First we need to install the **ng-mdx-remote** from GitHub Releaseas (no NPM Pac
 
 ```bash
 # npm install https://github.com/thisiseddy-ab/ng-mdx-remote/releases/download/tag-name/file-name.tgz
-npm install https://github.com/thisiseddy-ab/ng-mdx-remote/releases/download/v0.0.1/ng-mdx-remote-0.0.1.tgz
+npm install https://github.com/thisiseddy-ab/ng-mdx-remote/releases/download/v1.0.0/ng-mdx-remote-1.0.0.tgz 
 ```
 
 Second we need to install this React and Mdx Packages ***npm install react react-dom @mdx-js/mdx @mdx-js/react vfile vfile-matter prismjs clipboard***.
@@ -816,12 +816,11 @@ You need to activate the plugin in Component
 The remark-emoji plugin is a useful tool within the Remark ecosystem that enhances Markdown documents by converting emoji shortcodes into their corresponding Unicode emoji characters. This plugin makes it easy to add visual interest and expressiveness to your Markdown content, ensuring that emojis are displayed correctly across different platforms and devices.
 
 ## Key Features
+  * Automatic Emoji Conversion: Converts common emoji shortcodes into their corresponding Unicode emoji characters within your Markdown content.
 
-    * Automatic Emoji Conversion: Converts common emoji shortcodes into their corresponding Unicode emoji characters within your Markdown content.
+  * Broad Emoji Support: Includes a wide range of emoji shortcodes, ensuring that you have access to a diverse set of emojis to enhance your content.
 
-    * Broad Emoji Support: Includes a wide range of emoji shortcodes, ensuring that you have access to a diverse set of emojis to enhance your content.
-
-    * Seamless Integration: Easily integrates into your existing Remark processing pipeline, requiring minimal configuration.
+  * Seamless Integration: Easily integrates into your existing Remark processing pipeline, requiring minimal configuration.
 
 This plugin will Raise an Error in normal Angular App, but will work in AnalogJS
 
