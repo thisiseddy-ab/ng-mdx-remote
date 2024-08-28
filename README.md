@@ -14,7 +14,7 @@ Although this library allows you to leverage MDX within Angular, it is important
 
 Integrating MDX into Angular applications opens up a plethora of possibilities for creating interactive and rich content. Whether you are building documentation sites, blogs, or content-driven applications, ng-mdx-remote offers a streamlined way to bring the dynamic capabilities of MDX to your Angular projects.
 
-## Contents
+## Content
 
 * [Installation](#Installation)
 * [React/Angular Components](#Having-React-and-Angular-Components-in-an-MDX-File)
@@ -29,6 +29,12 @@ Integrating MDX into Angular applications opens up a plethora of possibilities f
   * [Using PrismJS Nested Code Block inside MDX File](#Using-PrismJS-Nested-Code-Block-inside-MDX-File)
 * [Using Build-in Clipboard Plugin](#Using-Build-in-Clipboard-Plugin)
 * [Use remark/rehype Plugins](#Use-remark-and-rehype-Plugins)
+  * [Using Remark/Rehype Plugins that are Built-in](#Using-Remark/Rehype-Plugins-that-are-Built-in)
+  * [Usin Remark Gemoji Plugin](#Usin-Remark-Gemoji-Plugin)
+  * [Usin Remark Emoji (Gemoji) Plugin](#Usin-Remark-Emoji-(Gemoji)-Plugin)
+  * [Using Rehype Twemoji Plugin](#Using-Rehype-Twemoji-Plugin)
+  * [Using Rehype Katex Plugin](#Using-Rehype-Katex-Plugin)
+  * [Using Rehype Mermaid Plugin](#Using-Rehype-Mermaid-Plugin)
 
 ## Installation
 
@@ -773,7 +779,7 @@ Because some plugin have the same Function Name ore the Function Name is just "p
 
 The remark-gemoji plugin is a powerful tool for enhancing Markdown content by automatically converting GitHub-style emoji shortcodes into their corresponding emoji characters. This plugin is part of the Remark ecosystem, a collection of tools for parsing, transforming, and serializing Markdown. With remark-gemoji, you can easily add expressive and visually engaging emojis to your Markdown documents using simple text-based codes.
 
-## Key Features
+#### Key Features
 
   * Automatic Emoji Conversion: The plugin detects GitHub-style emoji shortcodes within your Markdown text and replaces them with the corresponding emoji characters.
 
@@ -826,7 +832,7 @@ You need to activate the plugin in Component
 
 The remark-emoji plugin is a useful tool within the Remark ecosystem that enhances Markdown documents by converting emoji shortcodes into their corresponding Unicode emoji characters. This plugin makes it easy to add visual interest and expressiveness to your Markdown content, ensuring that emojis are displayed correctly across different platforms and devices.
 
-## Key Features
+#### Key Features
   * Automatic Emoji Conversion: Converts common emoji shortcodes into their corresponding Unicode emoji characters within your Markdown content.
 
   * Broad Emoji Support: Includes a wide range of emoji shortcodes, ensuring that you have access to a diverse set of emojis to enhance your content.
@@ -877,11 +883,11 @@ You need to activate the plugin in the component, and you can update the options
 
 ```
 
-### Usin Rehype Twemoji Plugin
+### Using Rehype Twemoji Plugin
 
 The rehype-twemoji plugin is a powerful tool within the Rehype ecosystem that enhances HTML content by transforming standard Unicode emojis into Twitter-style emoji images (SVG or PNG). This plugin allows you to maintain a consistent, high-quality emoji appearance across all platforms, making your content visually appealing and easily recognizable.
 
-## Key Features
+#### Key Features
 
   * Twitter-Style Emojis: Converts standard Unicode emojis into Twitter’s Twemoji images, available in both SVG and PNG formats.
 
@@ -942,11 +948,11 @@ ng-mdx-remote-render * img[data-twemoji] {
 
 ```
 
-### Usin Rehype Katex Plugin
+### Using Rehype Katex Plugin
 
 The rehype-katex plugin is a powerful tool that enables the rendering of LaTeX math equations in HTML content. By integrating this plugin into your Rehype processing pipeline, you can seamlessly convert LaTeX math expressions within your Markdown or HTML files into beautifully formatted mathematical notation, using the popular KaTeX library.
 
-## Key Features
+#### Key Features
 
   * LaTeX to KaTeX Conversion: Converts LaTeX math expressions, both inline ($...$) and display ($$...$$), into KaTeX-rendered HTML, providing high-quality mathematical typesetting.
 
@@ -998,11 +1004,11 @@ You need to activate the plugin in the component, and you can update the options
 
 ```
 
-### Usin Rehype Mermaid Plugin
+### Using Rehype Mermaid Plugin
 
 The Mermaid plugin is a powerful tool that enables the creation of diagrams and flowcharts directly within Markdown or HTML content. By integrating this plugin into your workflow, you can seamlessly convert text-based descriptions of diagrams into beautifully rendered visualizations. This is particularly useful for documentation, technical writing, and any content where clear, concise diagrams can enhance understanding.
 
-## Key Features
+### Key Features
 
   * Text-Based Diagram Creation: Allows you to define complex diagrams using an intuitive, text-based syntax within your Markdown or HTML files.
 
