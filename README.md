@@ -18,8 +18,8 @@ Integrating MDX into Angular applications opens up a plethora of possibilities f
 
 * [Installation](#Installation)
 * [React/Angular Components](#Having-React-and-Angular-Components-in-an-MDX-File)
-* [Use Build-in PrismJS Plugin](#Use Build-in PrismJS Plugin)
-  * [Use PrismJS lineHighlight Plugin](#Use PrismJS lineHighlight Plugin)
+* [Use Build-in PrismJS Plugin](#Use-Build-in-PrismJS-Plugin)
+  * [Use PrismJS lineHighlight Plugin](#Use-PrismJS-lineHighlight-Plugin)
 * [Use remark/rehype Plugins](#Use-remark-and-rehype-Plugins)
 
 ## Installation
