@@ -20,6 +20,14 @@ Integrating MDX into Angular applications opens up a plethora of possibilities f
 * [React/Angular Components](#Having-React-and-Angular-Components-in-an-MDX-File)
 * [Use Build-in PrismJS Plugin](#Use-Build-in-PrismJS-Plugin)
   * [Use PrismJS lineHighlight Plugin](#Use-PrismJS-lineHighlight-Plugin)
+  * [Use PrismJS Line Numbers Plugin](#Use-PrismJS-Line-Numbers-Plugin)
+  * [Use PrismJS Command Line Plugin](#Use-PrismJS-Command-Line-Plugin)
+  * [Use PrismJS DiffHighlight Plugin](#Use-PrismJS-DiffHighlight-Plugin)
+  * [Use PrismJS Match Braces Plugin](#Use-PrismJS-Match-Braces-Plugin)
+  * [Use PrismJS Normalize Whitespace Plugin](#Use-PrismJS-Normalize-Whitespace-Plugin)
+  * [Using Other PrismJS Plugins](#Using-Other-PrismJS-Plugins)
+  * [Using PrismJS Nested Code Block inside MDX File](#Using-PrismJS-Nested-Code-Block-inside-MDX-File)
+* [Using Build-in Clipboard Plugin](#Using-Build-in-Clipboard-Plugin)
 * [Use remark/rehype Plugins](#Use-remark-and-rehype-Plugins)
 
 ## Installation
@@ -369,7 +377,7 @@ Additionally, you can use start input property to specify the offset number for 
   ></ng-mdx-remote-render>
 ```
 
-### Use PrismJS commandLine Plugin 
+### Use PrismJS Command Line Plugin
 
 The Command Line Plugin for PrismJS is a specialized extension designed to enhance the presentation of command-line interface (CLI) code snippets. This plugin simulates the look and feel of a terminal or command prompt, making it easier for users to distinguish between commands, output, and other elements typically seen in a CLI environment.
 
@@ -572,7 +580,7 @@ root_folder
 
 Incorporate advanced syntax highlighting and customizations into your MDX files by utilizing PrismJS nested code blocks. This feature allows you to fine-tune the appearance and functionality of code blocks within your documentation or content, offering enhanced control over syntax highlighting and code presentation.
 
-## Step-by-Step Integration
+### Step-by-Step Integration
 
     1. Activate the Nested Code Feature: To enable nested code blocks, first, activate the nested_code property in the parent ng-mdx-remote-render component. This component is responsible for rendering your MDX content with support for nested code blocks. Here’s an example configuration.
     
