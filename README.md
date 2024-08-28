@@ -28,10 +28,10 @@ Integrating MDX into Angular applications opens up a plethora of possibilities f
   * [Using Other PrismJS Plugins](#Using-Other-PrismJS-Plugins)
   * [Using PrismJS Nested Code Block inside MDX File](#Using-PrismJS-Nested-Code-Block-inside-MDX-File)
 * [Using Build-in Clipboard Plugin](#Using-Build-in-Clipboard-Plugin)
-* [Use remark/rehype Plugins](#Use-remark-and-rehype-Plugins)
-  * [Using Remark/Rehype Plugins that are Built-in](#Using-Remark/Rehype-Plugins-that-are-Built-in)
-  * [Usin Remark Gemoji Plugin](#Usin-Remark-Gemoji-Plugin)
-  * [Usin Remark Emoji (Gemoji) Plugin](#Usin-Remark-Emoji-(Gemoji)-Plugin)
+* [Use Remark/Rehype Plugins](#Use-Remark-and-Rehype-Plugins)
+  * [Using Remark/Rehype Plugins that are Built-in](#Using-Remark-and-Rehype-Plugins-that-are-Built-in)
+  * [Using Remark Gemoji Plugin](#Using-Remark-Gemoji-Plugin)
+  * [Using Remark Emoji (Gemoji) Plugin](#Using-Remark-Emoji-(Gemoji)-Plugin)
   * [Using Rehype Twemoji Plugin](#Using-Rehype-Twemoji-Plugin)
   * [Using Rehype Katex Plugin](#Using-Rehype-Katex-Plugin)
   * [Using Rehype Mermaid Plugin](#Using-Rehype-Mermaid-Plugin)
@@ -771,11 +771,11 @@ mdxOptions: SerializeOptions = {
   };
 ```
 
-## Using Remark/Rehype Plugins that are Built-in
+## Using Remark and Rehype Plugins that are Built-in
 
 Because some plugin have the same Function Name ore the Function Name is just "plugin", i made an new way to add the build in Remark/Rehype Plugins os it has specific name:
 
-### Usin Remark Gemoji Plugin
+### Using Remark Gemoji Plugin
 
 The remark-gemoji plugin is a powerful tool for enhancing Markdown content by automatically converting GitHub-style emoji shortcodes into their corresponding emoji characters. This plugin is part of the Remark ecosystem, a collection of tools for parsing, transforming, and serializing Markdown. With remark-gemoji, you can easily add expressive and visually engaging emojis to your Markdown documents using simple text-based codes.
 
@@ -828,7 +828,7 @@ You need to activate the plugin in Component
 
 ```
 
-### Usin Remark Emoji (Gemoji) Plugin
+### Using Remark Emoji (Gemoji) Plugin
 
 The remark-emoji plugin is a useful tool within the Remark ecosystem that enhances Markdown documents by converting emoji shortcodes into their corresponding Unicode emoji characters. This plugin makes it easy to add visual interest and expressiveness to your Markdown content, ensuring that emojis are displayed correctly across different platforms and devices.
 
