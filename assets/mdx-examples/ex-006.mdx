@@ -1,0 +1,433 @@
+# Use PrismJS Plugins
+
+Plugins in PrismJS are powerful additional scripts and stylesheets (CSS) that extend the core functionality of the library, providing a wide array of features that enhance how code snippets are displayed and interacted with. These plugins are designed to be modular, meaning you can choose to include only the ones that are relevant to your needs, keeping the Prism Core lightweight and optimized for performance.
+
+Many of these plugins are officially developed and maintained by the PrismJS team, ensuring compatibility and seamless integration with the core library. However, they are offered as separate plugins rather than being included in the core package. This modular approach allows developers to build a more customized and efficient setup, incorporating only the features they require without burdening their projects with unnecessary code.
+
+## Line Highlight Plugin 
+
+This plugin allows specific lines or ranges of lines to be highlighted, drawing attention to important parts of the code. It’s particularly useful in tutorials or examples where you want to emphasize certain sections.
+
+To use the line highlight plugin that highlights specific lines and/or line ranges in code blocks, in addition to Prism.js configuration files, you will need to include the following files from prismjs/plugins/line-highlight directory to your application:
+
+  * CSS styling for line highlight - prism-line-highlight.css
+  * line highlight plugin script - prism-line-highlight.js
+
+
+```typescript
+
+// JS
+import 'prismjs/plugins/line-highlight/prism-line-highlight';
+
+// CSS
+import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
+
+```
+
+Using ng-mdx-remote-render component, you will be able to use the line_highlight property to activate the plugin.
+
+Use line input property to specify the line(s) to highlight and optionally there is a lineOffset property to specify the starting line of code your snippet represents.
+
+
+```html
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  prismjs
+  line_highlight
+  [line]="'6, 10-16'"
+  [lineOffset]="5"
+  ></ng-mdx-remote-render>
+```
+### Here an Example using Line Highlight Plugin 
+
+<ng-mdx-nested-code
+prismjs
+line_highlight
+line="2-7, 15-20, 22-27"
+>
+```css
+/* Basic CSS styling for a webpage */
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+
+p {
+  color: #666;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+```
+</ng-mdx-nested-code>
+
+## Line Numbers Plugin
+
+This popular plugin adds line numbers to each line of the code block, making it easier for users to reference specific lines, particularly in educational content or documentation.
+
+To use the line numbers plugin that shows line numbers in code blocks, in addition to Prism.js configuration files, you will need to include the following files from prismjs/plugins/line-numbers directory to your application:
+
+  * CSS styling for line numbers - prism-line-numbers.css
+  * line numbers plugin script - prism-line-numbers.js
+
+```typescript
+
+// JS
+import 'prismjs/plugins/line-numbers/prism-line-numbers';
+
+// CSS
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+
+```
+
+Using ng-mdx-remote-render component, you will be able to use the line_numbers property to activate the plugin.
+
+Additionally, you can use start input property to specify the offset number for the first display line.
+
+```html
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  prismjs
+  line_numbers
+  [start]="8"
+  ></ng-mdx-remote-render>
+```
+
+### Here an Example using Line Number Plugin 
+
+<ng-mdx-nested-code
+prismjs
+line_numbers
+start="8"
+>
+```py
+
+# Create a list of numbers and filter even and odd numbers using list comprehension
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+
+# Filter even numbers
+even_numbers = [num for num in numbers if num % 2 == 0]
+
+# Filter odd numbers
+odd_numbers = [num for num in numbers if num % 2 != 0]
+
+# Calculate the sum of even and odd numbers
+sum_even = sum(even_numbers)
+sum_odd = sum(odd_numbers)
+```
+</ng-mdx-nested-code>
+
+
+## Command Line Plugin 
+
+The Command Line Plugin for PrismJS is a specialized extension designed to enhance the presentation of command-line interface (CLI) code snippets. This plugin simulates the look and feel of a terminal or command prompt, making it easier for users to distinguish between commands, output, and other elements typically seen in a CLI environment.
+
+To use the command line plugin that displays a command line with a prompt and, optionally, the output/response from the commands, you will need to include the following files from prismjs/plugins/command-line directory to your application:
+
+  * CSS styling for command line - prism-command-line.css
+  * command line plugin script - prism-command-line.js
+
+```typescript
+
+// JS
+import 'prismjs/plugins/command-line/prism-command-line';
+
+// CSS
+import 'prismjs/plugins/command-line/prism-command-line.css';
+
+```
+
+Using ng-mdx-remote-render component, you will be able to use the command_line property to activate the plugin.
+
+You may also specify the lines to be presented as output (no prompt and no highlighting) through the output property in the following simple format:
+
+  * A single number refers to the line with that number
+  * Ranges are denoted by two numbers, separated with a hyphen (-)
+  * Multiple line numbers or ranges are separated by commas
+  * Whitespace is allowed anywhere and will be stripped off
+
+```html
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  prismjs
+  command_line
+  [user]="'chris'"
+  [host]="'remotehost'"
+  [output]="'2, 4-8'"
+  ></ng-mdx-remote-render>
+```
+
+Maybe there's something wrong with my implementation or with the plugin, but you need to put this CSS in the global style.css file:
+
+```css
+ng-mdx-remote-render * .command,.output {
+  display: block;
+  float: left;
+  font-size: 100%;
+  letter-spacing: -1px;
+  margin-right: 1em;
+  pointer-events: none;
+  text-align: right;
+}
+```
+
+### Here Some Example using Command Line Plugin
+
+<ng-mdx-nested-code
+prismjs
+command_line
+user="root"
+host="localhost"
+>
+```bash
+cd /usr/local/etc
+cp php.ini php.ini.bak
+vi php.ini
+```
+</ng-mdx-nested-code>
+
+<ng-mdx-nested-code
+prismjs
+command_line
+user="chris"
+host="remotehost"
+output="2, 4-8"
+>
+```bash
+pwd
+/usr/home/chris/bin
+ls -la
+total 2
+drwxr-xr-x   2 chris  chris     11 Jan 10 16:48 .
+drwxr--r-x  45 chris  chris     92 Feb 14 11:10 ..
+-rwxr-xr-x   1 chris  chris    444 Aug 25  2013 backup
+-rwxr-xr-x   1 chris  chris    642 Jan 17 14:42 deploy
+```
+</ng-mdx-nested-code>
+
+## DiffHighlight Plugin 
+
+The Diff Highlight Plugin for PrismJS is a powerful extension that enhances code snippets by visually highlighting differences between two or more versions of code. It’s particularly useful for showcasing changes, such as additions, deletions, and modifications, in side-by-side code comparisons or inline diff views. This plugin is ideal for developers, technical writers, and educators who need to present code changes clearly and effectively in documentation, tutorials, or code reviews.
+
+To use the DiffHighlight plugin that Highlights the code inside diff blocks, you will need to include the following files from prismjs/plugins/diff-highlight directory to your application:
+
+  * CSS styling for line highlight - prism-diff-highlight.css
+  * line highlight plugin script - prism-diff-highlight.js
+
+```typescript
+
+// JS
+import 'prismjs/plugins/diff-highlight/prism-diff-highlight';
+
+// CSS
+import 'prismjs/plugins/diff-highlight/prism-diff-highlight.css';
+
+```
+
+Using ng-mdx-remote-render component, you will be able to use the diff_highlight property to activate the plugin.
+
+```html
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  prismjs
+  diff_highlight
+  ></ng-mdx-remote-render>
+```
+
+### Here an Example using DiffHighlight Plugin 
+
+<ng-mdx-nested-code
+prismjs
+diff_highlight
+>
+```diff
+- // Old variable declaration
+- const oldValue = 42;
++ // New variable declaration
++ const newValue = 100;
+ 
+- // Old function definition
+- function oldFunction() {
++ // New function definition
++ function newFunction(param) {
+   // Old function body
+-   console.log(oldValue);
++   console.log(newValue, param);
+ }
+ 
+- // Old usage
+- oldFunction();
++ // New usage
+```
+</ng-mdx-nested-code>
+
+## Match Braces Plugin 
+
+The Match Braces Plugin for PrismJS is a specialized extension designed to enhance the readability of code by visually emphasizing matching pairs of braces, brackets, and parentheses. This plugin is particularly useful for developers working with code that involves complex or nested structures, such as in programming languages like JavaScript, C++, or Python. By highlighting the corresponding pairs of these delimiters, the Match Braces Plugin helps users quickly identify and navigate through the logical structure of the code.
+
+To use the Match Braces plugin that Highlights the matching braces, you will need to include the following files from prismjs/plugins/match-braces directory to your application:
+
+  * CSS styling for line highlight - prism-match-braces.css
+  * line highlight plugin script - prism-match-braces.js
+
+```typescript
+
+// JS
+import 'prismjs/plugins/match-braces/prism-match-braces';
+
+// CSS
+import 'prismjs/plugins/match-braces/prism-match-braces.css'
+
+```
+
+Using ng-mdx-remote-render component, you will be able to use the match_braces property to activate the plugin and match_braces_options.
+
+
+```html
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  prismjs
+  match_braces
+  [match_braces_options]='{"rainbow-braces": true, "no-brace-hover": true, "no-brace-select": false}'
+  ></ng-mdx-remote-render>
+
+```
+
+### Here an Example using Match Braces Plugin 
+
+<ng-mdx-nested-code
+prismjs
+match_braces
+match_braces_options='{"rainbow-braces": true, "no-brace-hover": true, "no-brace-select": false}'
+>
+```javascript
+(defun factorial (n)
+	(if (= n 0) 1
+		(* n (factorial (- n 1)))))
+```
+</ng-mdx-nested-code>
+
+## Normalize Whitespace Plugin 
+
+The Normalize Whitespace Plugin for PrismJS is a utility-focused extension designed to standardize and clean up the whitespace within code snippets. This plugin is particularly useful for developers and technical writers who want to ensure consistent formatting across code examples, regardless of variations in whitespace, such as extra spaces or tabs.
+
+To use the Normalize Whitespace plugin that Supports multiple operations to normalize whitespace in code blocks, you will need to include the following files from prismjs/plugins/normalize-whitespace directory to your application:
+
+  * line highlight plugin script - prism-normalize-whitespace.js
+
+```typescript
+
+// JS
+import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
+
+```
+
+Using ng-mdx-remote-render component, you will be able to use the ormalize_whitespace_options property to activate the plugin.
+
+Here are The Options u can change:
+
+```typescript
+{
+  "remove-trailing"?: boolean;
+  "remove-indent"?: boolean;
+  "left-trim"?: boolean;
+  "right-trim"?: boolean;
+  "break-lines"?: number;
+  "indent"?: number;
+  "remove-initial-line-feed"?: boolean;
+  "tabs-to-spaces"?: number;
+  "spaces-to-tabs"?: number;
+}
+
+```
+
+```html
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  prismjs
+  [normalize_whitespace_options]="{'remove-trailing': true, 'remove-indent': false, 'left-trim': true}"
+  ></ng-mdx-remote-render>
+
+```
+
+## Using Other PrismJS Plugins
+
+For other PrismJS Plugins there is not special attribute or i forgot to implement, i will give just one Example to add Treeview Plugin.
+
+
+  * CSS styling for line highlight - prism-treeview.css
+  * line highlight plugin script - prism-treeview.js
+
+```typescript
+
+// JS
+import 'prismjs/plugins/treeview/prism-treeview';
+
+// CSS
+import 'prismjs/plugins/treeview/prism-treeview.css';
+
+```
+
+```markdown
+
+```treeview
+root_folder
+|-- a first folder
+|   |-- holidays.mov
+|   |-- javascript-file.js
+|   `-- some_picture.jpg
+|-- .htaccess
+|-- .npmignore
+|-- archive 1.zip
+|-- archive 2.tar.gz
+|-- logo.svg
+`-- README.md
+```
+### Here an Example using Treeview Plugin 
+
+<ng-mdx-nested-code
+prismjs
+
+>
+```treeview
+root_folder
+|-- a first folder
+|   |-- holidays.mov
+|   |-- javascript-file.js
+|   `-- some_picture.jpg
+|-- .htaccess
+|-- .npmignore
+|-- archive 1.zip
+|-- archive 2.tar.gz
+|-- logo.svg
+`-- REA
+```
+</ng-mdx-nested-code>

@@ -1,0 +1,93 @@
+# Usin Rehype Katex Plugin
+
+The rehype-katex plugin is a powerful tool that enables the rendering of LaTeX math equations in HTML content. By integrating this plugin into your Rehype processing pipeline, you can seamlessly convert LaTeX math expressions within your Markdown or HTML files into beautifully formatted mathematical notation, using the popular KaTeX library.
+
+## Key Features
+
+    * LaTeX to KaTeX Conversion: Converts LaTeX math expressions, both inline ($...$) and display ($$...$$), into KaTeX-rendered HTML, providing high-quality mathematical typesetting.
+
+    * Fast and Reliable Rendering: KaTeX is known for its speed and reliability, making it ideal for rendering complex equations without performance issues.
+
+    * Customizable Output: The plugin allows for customization of the KaTeX output, including options for macros, display modes, and other KaTeX settings.
+
+    * No Dependencies on External Libraries: The plugin can operate entirely within your Rehype processing pipeline, without requiring external JavaScript or CSS files during runtime, making it a lightweight and efficient solution.
+
+```bash
+# https://www.npmjs.com/package/rehype-katex
+npm install rehype-katex
+```
+
+The "pluginName" needs to be exactly "rehypeKatex"
+
+```typescript
+
+import {Input_SerializeOptions, KatexOptions} from 'ng-mdx-remote';
+import rehypeKatex from 'rehype-katex';
+
+mdxOptions: Input_SerializeOptions = {
+    scope: {},
+    mdxOptions: {
+      remarkPlugins: [
+      ], 
+      rehypePlugins: [
+        {pluginName: 'rehypeKatex', pluginFunc: rehypeKatex, pluginOptions: {displayMode : false, output : "mathml",throwOnError : true, } satisfies KatexOptions},
+      ],
+      format: 'mdx',
+      development: false
+    },
+    parseFrontmatter: true,
+  };
+
+```
+
+You need to activate the plugin in the component, and you can update the options. Each component can have different options.
+
+```html
+
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  katex
+  [katex_options]="{displayMode : false, output : 'html'}"
+  ></ng-mdx-remote-render>
+
+```
+
+## Here are some Exaples using Katex
+
+```markdown
+A = \begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{pmatrix}, \quad
+B = \begin{pmatrix}
+b_{11} & b_{12} \\
+b_{21} & b_{22}
+\end{pmatrix}
+```
+
+```math
+A = \begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{pmatrix}, \quad
+B = \begin{pmatrix}
+b_{11} & b_{12} \\
+b_{21} & b_{22}
+\end{pmatrix}
+```
+
+```markdown
+AB = \begin{pmatrix}
+a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
+a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22}
+\end{pmatrix}
+```
+
+```math
+AB = \begin{pmatrix}
+a_{11}b_{11} + a_{12}b_{21} & a_{11}b_{12} + a_{12}b_{22} \\
+a_{21}b_{11} + a_{22}b_{21} & a_{21}b_{12} + a_{22}b_{22}
+\end{pmatrix}
+```

@@ -1,0 +1,66 @@
+# Introduction to Using React Components in MDX
+
+MDX allows you to seamlessly integrate React components with Markdown content, enabling you to create rich, interactive documents. This guide will explain how to use React components within MDX and provide examples of custom components you can incorporate into your MDX files.
+
+## How to Use React Components in MDX
+
+To use React components in your MDX files, follow these steps:
+
+1. **Embed the Component:**
+   Use the imported component directly in your Markdown content, just like you would in a regular React file. You can pass props to the component to customize its behavior and appearance.
+
+2. **Render Dynamic Content:**
+   React components can be used to render dynamic content, such as interactive elements, forms, or custom UI components, directly within your Markdown.
+
+## Example React Components
+
+Below are some example React components that you can use in your MDX files.
+
+
+### 1. **Greeting Component**
+
+The `Greeting` component offers a personalized greeting to the reader. This component is ideal for adding a personal touch to your content by addressing users directly.
+
+<Greeting name="Edin Abdiu"/>
+
+### 2. **Button Component**
+
+The `Button` component creates a customizable button that can perform actions when clicked. This is perfect for adding interactive elements to your content, such as triggering events or handling user interactions.
+
+<Button onClick={() => alert('Button clicked!')} />
+
+### 3. **Info Card Component**
+
+The `InfoCard` component displays information in a visually appealing card format. It can include an optional image, a title, and a description, making it ideal for highlighting key points or showcasing important content.
+
+
+<InfoCard 
+  title="Learn MDX" 
+  content="MDX allows you to combine Markdown with React components, providing a powerful way to create interactive documents." 
+  imageUrl="https://pbs.twimg.com/profile_images/1172176255761825793/eeqDiY-x_400x400.jpg"
+/>
+
+### 4. **Alert Box Component**
+
+The `AlertBox` component is used to display different types of alert messages, including informational, warning, and error messages. This component is useful for providing feedback or notifications within your content.
+
+**Info Exaple**
+
+<AlertBox 
+  message="This is an info alert box." 
+  type="info"
+/>
+
+**Warning Example**
+
+<AlertBox 
+  message="This is a warning alert box." 
+  type="warning"
+/>
+
+**Error Example**
+
+<AlertBox 
+  message="This is an error alert box." 
+  type="error"
+/>

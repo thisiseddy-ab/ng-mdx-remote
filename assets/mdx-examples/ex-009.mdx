@@ -1,0 +1,90 @@
+# Use Remark and Rehype Plugins
+
+Incorporating Remark and Rehype plugins into your MDX (Markdown for JSX) workflow provides powerful tools for transforming and enhancing your Markdown content. These plugins offer extensive customization options for parsing and manipulating your Markdown and HTML content, enabling you to tailor your documentation or blog posts to meet your specific needs.
+
+## Overview
+
+MDX allows you to write JSX directly within Markdown files, combining the simplicity of Markdown with the power of React components. By leveraging Remark and Rehype plugins, you can extend this functionality further, enabling advanced transformations and integrations that enhance both the formatting and interactivity of your content.
+
+## Remark Plugins
+
+Remark is a Markdown processor built on plugins that transform Markdown syntax into an abstract syntax tree (AST). Remark plugins allow you to customize and extend how Markdown is parsed and rendered. Some common uses include:
+
+    1. Custom Syntax Extensions: Add custom Markdown syntax or modify existing syntax to fit your needs. For example, you can create plugins to support custom directives or new Markdown features.
+
+    2. Content Transformation: Modify the Markdown content during the parsing stage. Plugins can be used to automatically add certain elements, modify existing ones, or clean up Markdown files.
+
+    3. Linting and Validation: Implement plugins that enforce style guides, check for errors, or ensure consistency across your Markdown files.
+
+## Rehype Plugins
+
+Rehype is an HTML processor based on plugins that transform HTML content into an AST. It complements Remark by processing the HTML output generated from Markdown. Rehype plugins can be used to:
+
+    1. Enhance HTML Content: Add attributes, modify existing elements, or inject additional content into the HTML output. This can be useful for adding classes, IDs, or other attributes to HTML elements.
+
+    2. Syntax Highlighting: Apply syntax highlighting to code blocks using libraries such as PrismJS or Highlight.js. This ensures that code snippets in your MDX files are displayed with appropriate syntax coloring.
+
+    3. Optimize HTML: Minify or otherwise optimize the HTML output to improve performance and ensure cleaner markup.
+
+```bash
+npm install rehype_plugin
+```
+
+```typescript
+mdxOptions: Input_SerializeOptions = {
+    scope: {},
+    mdxOptions: {
+      remarkPlugins: [
+      ], 
+      rehypePlugins: [
+        rehype_plugin
+      ],
+      format: 'mdx',
+      development: false
+    },
+    parseFrontmatter: true,
+  };
+```
+
+If the Plugin, has Options you can pass it like this:
+
+```typescript
+mdxOptions: Input_SerializeOptions = {
+    scope: {},
+    mdxOptions: {
+      remarkPlugins: [
+      ], 
+      rehypePlugins: [
+        [rehype_plugin,{opt_1: true,opt_2: false}]
+      ],
+      format: 'mdx',
+      development: false
+    },
+    parseFrontmatter: true,
+  };
+```
+
+## Using Remark/Rehype Plugins that are Built-in
+
+Because some plugin have the same Function Name ore the Function Name is just "plugin", i made an new way to add the build in Remark/Rehype Plugins os it has specific name:
+
+```typescript
+
+import {Input_SerializeOptions, RehypeTwemojiOptions} from 'ng-mdx-remote';
+import { rehypeTwemoji } from 'rehype-twemoji'
+
+mdxOptions: SerializeOptions = {
+    scope: {},
+    mdxOptions: {
+      remarkPlugins: [
+      ], 
+      rehypePlugins: [
+        {pluginName: 'rehypeTwemoji', pluginFunc: rehypeTwemoji, pluginOptions: {format: 'svg', source: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@latest'} satisfies RehypeTwemojiOptions},
+      ],
+      format: 'mdx',
+      development: false
+    },
+    parseFrontmatter: true,
+  };
+
+```

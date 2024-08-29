@@ -1,0 +1,130 @@
+# Using PrismJS Nested Code Block inside MDX File
+
+Incorporate advanced syntax highlighting and customizations into your MDX files by utilizing PrismJS nested code blocks. This feature allows you to fine-tune the appearance and functionality of code blocks within your documentation or content, offering enhanced control over syntax highlighting and code presentation.
+
+## Step-by-Step Integration
+
+    1. Activate the Nested Code Feature: To enable nested code blocks, first, activate the nested_code property in the parent ng-mdx-remote-render component. This component is responsible for rendering your MDX content with support for nested code blocks. Here’s an example configuration.
+    
+    2. Add Nested Code Blocks in MDX: Within your MDX file, you can now use the **ng-mdx-nested-code** component to specify different PrismJS options for each code block. Customize code blocks with various features such as line numbers, line highlighting, and more. Here’s how to integrate nested code blocks.
+
+### Activate the Nested Code Feature:
+
+    * First Activate the "nested_code" Property in Parent "ng-mdx-remote-render"  Component
+
+```html
+
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  nested_code
+  ></ng-mdx-remote-render>
+
+```
+
+### Add Nested Code Blocks in MDX:
+    * In you MDX File you can Add the Nested Code:
+
+```markdown
+<ng-mdx-nested-code
+prismjs
+line_numbers
+start="4"
+line_highlight
+line="6, 10-16"
+line_offset="5"
+>
+```css
+/* Basic CSS styling for a webpage */
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+
+</ng-mdx-nested-code>
+
+<ng-mdx-nested-code
+prismjs
+line_numbers
+line_highlight
+line="2, 4-7"
+>
+```javascript
+
+// A simple JavaScript function to greet a user
+const greet = (name) => {
+  return `Hello, ${name}!`;
+};
+
+// Use the function to greet the user
+const greeting = greet("World");
+console.log(greeting);
+
+// Create an array and filter even numbers
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const evenNumbers = numbers.filter((num) => num % 2 === 0);
+console.log("Even Numbers:", evenNumbers);
+
+</ng-mdx-nested-code>
+
+```
+
+## Here an Example How that will Look
+
+<ng-mdx-nested-code
+prismjs
+line_numbers
+start="4"
+line_highlight
+line="6, 10-16"
+line_offset="5"
+>
+```css
+/* Basic CSS styling for a webpage */
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+```
+</ng-mdx-nested-code>
+
+<ng-mdx-nested-code
+prismjs
+line_numbers
+line_highlight
+line="2, 4-7"
+>
+```javascript
+
+// A simple JavaScript function to greet a user
+const greet = (name) => {
+  return `Hello, ${name}!`;
+};
+
+// Use the function to greet the user
+const greeting = greet("World");
+console.log(greeting);
+
+// Create an array and filter even numbers
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const evenNumbers = numbers.filter((num) => num % 2 === 0);
+console.log("Even Numbers:", evenNumbers);
+```
+</ng-mdx-nested-code>

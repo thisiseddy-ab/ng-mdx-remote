@@ -1,0 +1,111 @@
+#  Use Build-in PrismJS Plugin
+
+PrismJS is a versatile and lightweight syntax highlighting library designed to enhance the readability and presentation of code snippets within web applications. Its primary function is to provide visually distinct formatting for different programming languages, making code easier to read and understand, especially in documentation, blogs, tutorials, and developer tools. With its focus on both performance and aesthetics, PrismJS ensures that the highlighted code is not only accurate but also visually appealing.
+
+    1. Language Support: PrismJS includes syntax highlighting for a broad array of languages, from popular ones like JavaScript, Python, and HTML to less common ones such as Haskell or Scala.
+
+    2. Plugins: PrismJS offers a variety of plugins that extend its core functionality. These plugins can add line numbers, line highlighting, auto-linking, and more, making the code snippets more interactive and informative.
+
+    3. Customization: Users can easily define custom themes and add or remove languages as needed. This flexibility ensures that PrismJS can seamlessly integrate with any website's design.
+
+    4. Lightweight: The library is optimized for performance, making it fast and responsive, even with large blocks of code.
+
+    5. Easy Integration: PrismJS can be integrated into any web project with minimal setup. It can be included via a CDN or installed via package managers like npm.
+
+
+To use PrismJS, simply activate it with the 'prismjs' property. The existing Remark/Rehype plugins for PrismJS don't work as expected, so I implemented a custom solution.
+
+```html
+  <ng-mdx-remote-render 
+  [source]="mdxContent" 
+  sourceType="string" 
+  [options]="mdxOptions" 
+  prismjs
+  ></ng-mdx-remote-render>
+```
+
+To activate [Prism.js](http://prismjs.com/) syntax highlight you will need to include...
+- a highlight css theme - from `node_modules/prismjs/themes` directory
+- desired code language syntax files - from `node_modules/prismjs/components` directory
+
+```diff
+"styles": [
+  "styles.css",
++ "node_modules/prismjs/themes/prism-okaidia.css"
+],
+"scripts": [
++ "node_modules/prismjs/components/prism-css.min.js" # css language syntax
+]
+```
+
+The first method didn't work for me. If it doesn't work for you either, you can import the necessary scripts directly like this:
+
+```typescript
+
+// CSS
+import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/components/prism-css';
+
+```
+
+##  Code Block Exaples using PrismJS
+
+### JavaScript Example
+
+```javascript
+
+// A simple JavaScript function to greet a user
+const greet = (name) => {
+  return `Hello, ${name}!`;
+};
+
+// Use the function to greet the user
+const greeting = greet("World");
+console.log(greeting);
+
+// Create an array and filter even numbers
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const evenNumbers = numbers.filter((num) => num % 2 === 0);
+console.log("Even Numbers:", evenNumbers);
+
+```
+
+### Python Example
+
+```py
+
+# A simple Python function to greet a user
+def greet(name):
+    return f"Hello, {name}!"
+
+# Use the function to greet the user
+greeting = greet("World")
+print(greeting)
+
+# Create a list and filter even numbers using list comprehension
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even_numbers = [num for num in numbers if num % 2 == 0]
+print("Even Numbers:", even_numbers)
+
+```
+
+### CSS Example
+
+```css
+
+/* Basic CSS styling for a webpage */
+body {
+  background-color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
+}
+
+```
+
