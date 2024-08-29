@@ -289,27 +289,57 @@ To use PrismJS, simply activate it with the 'prismjs' property. The existing Rem
   prismjs
   ></ng-mdx-remote-render>
 ```
+### How to Configure Prism.js in angular.json
 
 To activate [Prism.js](http://prismjs.com/) syntax highlight you will need to include...
 - a highlight css theme - from `node_modules/prismjs/themes` directory
 - desired code language syntax files - from `node_modules/prismjs/components` directory
+- desired plugin file - from `node_modules/prismjs/plugins` directory
+
+#### Step 1: Add a CSS Theme
+
+The CSS theme controls how the code appears visually when it's highlighted. To include a theme:
+
+  * Find the desired theme in node_modules/prismjs/themes.
+  * Add the path to this CSS file in the styles array of your angular.json file.
 
 ```diff
+
 "styles": [
   "styles.css",
 + "node_modules/prismjs/themes/prism-okaidia.css"
 ],
-"scripts": [
-+ "node_modules/prismjs/components/prism-css.min.js" # css language syntax
-]
-```
 
-The first method didn't work for me. If it doesn't work for you either, you can import the necessary scripts directly like this:
+```
+#### Step 2: Add Syntax Files
+
+Syntax files are necessary for highlighting specific programming languages. To include them:
+  * Find the desired language files in node_modules/prismjs/components.
+  * Add the path to these files in the scripts array of your angular.json file.
+
+```diff
+
+"scripts": [
++ "node_modules/prismjs/components/prism-javascript.min.js",
++ "node_modules/prismjs/components/prism-typescript.min.js",
++ "node_modules/prismjs/components/prism-python.min.js",
++ "node_modules/prismjs/components/prism-css.min.js",
+]
+
+```
+#### 3. Potential Issue: Scripts Not Loading
+
+If you find that the Prism.js scripts are not loading properly when added via angular.json, there might be an issue with how Angular loads external scripts.
+
+##### 4. Alternative Solution: Import Scripts in main.ts
+
+If the scripts are not loading as expected through angular.json, you can directly import them in your main.ts file:
 
 ```typescript
 
-// CSS
-import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-css';
 
 ```
