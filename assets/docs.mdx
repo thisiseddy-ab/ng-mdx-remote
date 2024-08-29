@@ -1,6 +1,6 @@
 # Introduction
 
-**ng-mdx-remote** ***(Angular MDX Remote)*** is inspired from [**next-mdx-remote**](https://github.com/hashicorp/next-mdx-remote) and [**ngx-markdown**](https://www.npmjs.com/package/ngx-markdown), designed to bring the power and flexibility of MDX to Angular applications. With ng-mdx-remote, you can seamlessly integrate MDX content into your Angular projects, enabling rich, interactive documentation and content-driven applications.
+**ng-mdx-remote** ***(Angular MDX Remote)*** is inspired from [**next-mdx-remote**](https://github.com/hashicorp/next-mdx-remote) and [**ngx-markdown**](https://github.com/jfcere/ngx-markdown), designed to bring the power and flexibility of MDX to Angular applications. With ng-mdx-remote, you can seamlessly integrate MDX content into your Angular projects, enabling rich, interactive documentation and content-driven applications.
 
 Although this library allows you to leverage MDX within Angular, it is important to note for now that it still utilizes React under the hood. Therefore, it effectively creates a hybrid Angular/React environment, combining the best of both worlds.
 
@@ -265,27 +265,57 @@ To use PrismJS, simply activate it with the 'prismjs' property. The existing Rem
   prismjs
   ></ng-mdx-remote-render>
 ```
+### How to Configure Prism.js in angular.json
 
 To activate [Prism.js](http://prismjs.com/) syntax highlight you will need to include...
 - a highlight css theme - from `node_modules/prismjs/themes` directory
 - desired code language syntax files - from `node_modules/prismjs/components` directory
+- desired plugin file - from `node_modules/prismjs/plugins` directory
+
+#### Step 1: Add a CSS Theme
+
+The CSS theme controls how the code appears visually when it's highlighted. To include a theme:
+
+  * Find the desired theme in node_modules/prismjs/themes.
+  * Add the path to this CSS file in the styles array of your angular.json file.
 
 ```diff
+
 "styles": [
   "styles.css",
 + "node_modules/prismjs/themes/prism-okaidia.css"
 ],
-"scripts": [
-+ "node_modules/prismjs/components/prism-css.min.js" # css language syntax
-]
-```
 
-The first method didn't work for me. If it doesn't work for you either, you can import the necessary scripts directly like this:
+```
+#### Step 2: Add Syntax Files
+
+Syntax files are necessary for highlighting specific programming languages. To include them:
+  * Find the desired language files in node_modules/prismjs/components.
+  * Add the path to these files in the scripts array of your angular.json file.
+
+```diff
+
+"scripts": [
++ "node_modules/prismjs/components/prism-javascript.min.js",
++ "node_modules/prismjs/components/prism-typescript.min.js",
++ "node_modules/prismjs/components/prism-python.min.js",
++ "node_modules/prismjs/components/prism-css.min.js",
+]
+
+```
+#### 3. Potential Issue: Scripts Not Loading
+
+If you find that the Prism.js scripts are not loading properly when added via angular.json, there might be an issue with how Angular loads external scripts.
+
+#### 4. Alternative Solution: Import Scripts in main.ts
+
+If the scripts are not loading as expected through angular.json, you can directly import them in your main.ts file:
 
 ```typescript
 
-// CSS
-import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-python';
 import 'prismjs/components/prism-css';
 
 ```
@@ -299,14 +329,37 @@ To use the line highlight plugin that highlights specific lines and/or line rang
   * CSS styling for line highlight - prism-line-highlight.css
   * line highlight plugin script - prism-line-highlight.js
 
+#### Step 1: Add a Plugins CSS Style
+
+```diff
+
+"styles": [
+  "styles.css",
++ "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css"
+],
+
+```
+#### Step 2: Add Plugins Script
+
+```diff
+
+"scripts": [
++ "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.js",
+]
+
+```
+#### 3. Potential Issue: Scripts Not Loading
+
+If you find that the Prism.js scripts are not loading properly when added via angular.json, there might be an issue with how Angular loads external scripts.
+
+#### 4. Alternative Solution: Import Scripts in main.ts
+
+If the scripts are not loading as expected through angular.json, you can directly import them in your main.ts file:
 
 ```typescript
 
 // JS
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
-
-// CSS
-import 'prismjs/plugins/line-highlight/prism-line-highlight.css'
 
 ```
 
@@ -336,13 +389,37 @@ To use the line numbers plugin that shows line numbers in code blocks, in additi
   * CSS styling for line numbers - prism-line-numbers.css
   * line numbers plugin script - prism-line-numbers.js
 
+#### Step 1: Add a Plugins CSS Style
+
+```diff
+
+"styles": [
+  "styles.css",
++ "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+],
+
+```
+#### Step 2: Add Plugins Script
+
+```diff
+
+"scripts": [
++ "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
+]
+
+```
+#### 3. Potential Issue: Scripts Not Loading
+
+If you find that the Prism.js scripts are not loading properly when added via angular.json, there might be an issue with how Angular loads external scripts.
+
+#### 4. Alternative Solution: Import Scripts in main.ts
+
+If the scripts are not loading as expected through angular.json, you can directly import them in your main.ts file:
+
 ```typescript
 
 // JS
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
-
-// CSS
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 
 ```
 
@@ -370,13 +447,37 @@ To use the command line plugin that displays a command line with a prompt and, o
   * CSS styling for command line - prism-command-line.css
   * command line plugin script - prism-command-line.js
 
+#### Step 1: Add a Plugins CSS Style
+
+```diff
+
+"styles": [
+  "styles.css",
++ "node_modules/prismjs/plugins/command-line/prism-command-line.css"
+],
+
+```
+#### Step 2: Add Plugins Script
+
+```diff
+
+"scripts": [
++ "node_modules/prismjs/plugins/command-line/prism-command-line.js",
+]
+
+```
+#### 3. Potential Issue: Scripts Not Loading
+
+If you find that the Prism.js scripts are not loading properly when added via angular.json, there might be an issue with how Angular loads external scripts.
+
+#### 4. Alternative Solution: Import Scripts in main.ts
+
+If the scripts are not loading as expected through angular.json, you can directly import them in your main.ts file:
+
 ```typescript
 
 // JS
 import 'prismjs/plugins/command-line/prism-command-line';
-
-// CSS
-import 'prismjs/plugins/command-line/prism-command-line.css';
 
 ```
 
@@ -425,13 +526,37 @@ To use the DiffHighlight plugin that Highlights the code inside diff blocks, you
   * CSS styling for line highlight - prism-diff-highlight.css
   * line highlight plugin script - prism-diff-highlight.js
 
+#### Step 1: Add a Plugins CSS Style
+
+```diff
+
+"styles": [
+  "styles.css",
++ "node_modules/prismjs/plugins/diff-highlight/prism-diff-highlight.css"
+],
+
+```
+#### Step 2: Add Plugins Script
+
+```diff
+
+"scripts": [
++ "node_modules/prismjs/plugins/diff-highlight/prism-diff-highlight.js",
+]
+
+```
+#### 3. Potential Issue: Scripts Not Loading
+
+If you find that the Prism.js scripts are not loading properly when added via angular.json, there might be an issue with how Angular loads external scripts.
+
+#### 4. Alternative Solution: Import Scripts in main.ts
+
+If the scripts are not loading as expected through angular.json, you can directly import them in your main.ts file:
+
 ```typescript
 
 // JS
 import 'prismjs/plugins/diff-highlight/prism-diff-highlight';
-
-// CSS
-import 'prismjs/plugins/diff-highlight/prism-diff-highlight.css';
 
 ```
 
@@ -456,13 +581,37 @@ To use the Match Braces plugin that Highlights the matching braces, you will nee
   * CSS styling for line highlight - prism-match-braces.css
   * line highlight plugin script - prism-match-braces.js
 
+#### Step 1: Add a Plugins CSS Style
+
+```diff
+
+"styles": [
+  "styles.css",
++ "node_modules/prismjs/plugins/match-braces/prism-match-braces.css"
+],
+
+```
+#### Step 2: Add Plugins Script
+
+```diff
+
+"scripts": [
++ "node_modules/prismjs/plugins/match-braces/prism-match-braces.js",
+]
+
+```
+#### 3. Potential Issue: Scripts Not Loading
+
+If you find that the Prism.js scripts are not loading properly when added via angular.json, there might be an issue with how Angular loads external scripts.
+
+#### 4. Alternative Solution: Import Scripts in main.ts
+
+If the scripts are not loading as expected through angular.json, you can directly import them in your main.ts file:
+
 ```typescript
 
 // JS
 import 'prismjs/plugins/match-braces/prism-match-braces';
-
-// CSS
-import 'prismjs/plugins/match-braces/prism-match-braces.css'
 
 ```
 
@@ -488,6 +637,23 @@ The Normalize Whitespace Plugin for PrismJS is a utility-focused extension desig
 To use the Normalize Whitespace plugin that Supports multiple operations to normalize whitespace in code blocks, you will need to include the following files from prismjs/plugins/normalize-whitespace directory to your application:
 
   * line highlight plugin script - prism-normalize-whitespace.js
+
+#### Step 1: Add Plugins Script
+
+```diff
+
+"scripts": [
++ "node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js",
+]
+
+```
+#### 2. Potential Issue: Scripts Not Loading
+
+If you find that the Prism.js scripts are not loading properly when added via angular.json, there might be an issue with how Angular loads external scripts.
+
+#### 3. Alternative Solution: Import Scripts in main.ts
+
+If the scripts are not loading as expected through angular.json, you can directly import them in your main.ts file:
 
 ```typescript
 
@@ -534,13 +700,37 @@ For other PrismJS Plugins there is not special attribute or i forgot to implemen
   * CSS styling for line highlight - prism-treeview.css
   * line highlight plugin script - prism-treeview.js
 
+#### Step 1: Add a Plugins CSS Style
+
+```diff
+
+"styles": [
+  "styles.css",
++ "node_modules/prismjs/plugins/treeview/prism-treeview.css"
+],
+
+```
+#### Step 2: Add Plugins Script
+
+```diff
+
+"scripts": [
++ "node_modules/prismjs/plugins/treeview/prism-treeview.js",
+]
+
+```
+#### 3. Potential Issue: Scripts Not Loading
+
+If you find that the Prism.js scripts are not loading properly when added via angular.json, there might be an issue with how Angular loads external scripts.
+
+#### 4. Alternative Solution: Import Scripts in main.ts
+
+If the scripts are not loading as expected through angular.json, you can directly import them in your main.ts file:
+
 ```typescript
 
 // JS
 import 'prismjs/plugins/treeview/prism-treeview';
-
-// CSS
-import 'prismjs/plugins/treeview/prism-treeview.css';
 
 ```
 
